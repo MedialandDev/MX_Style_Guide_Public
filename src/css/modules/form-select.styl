@@ -1,0 +1,73 @@
+/* 
+  .select-wrap>(select>option)+::after
+*/
+select.select
+  width 100%
+  min-width 4em
+  padding-top 0
+  padding-bottom 0
+  padding-left $form-padding
+  padding-right 40px
+  appearance none
+  cursor pointer
+  border $form-border-width solid $form-border-color
+  height $input-h
+  line-height $input-h
+  &:focus
+    border $form-border-width solid $form-focus-border-color
+  &::-ms-expand
+    display: none
+  option
+    max-width: 100%
+    border: 0
+  &[required]
+    &:invalid
+      color $form-placeholder-color
+    option
+      color $form-color
+
+.select-wrap
+  position relative
+  display inline-block
+  vertical-align top
+  width 100%
+  color $form-color
+  &.is-error
+    color $form-error-color
+    &::after
+      border-color $form-error-color transparent transparent transparent
+    select.select
+      background-color $form-error-bgcolor
+      color $form-error-color
+      border $form-border-width solid $form-error-color
+      &[required]
+        &:invalid
+          color $form-placeholder-color
+        option
+          color $form-error-color
+  &+.error-msg
+    padding-left $form-padding + $form-border-width
+  &.style-autowidth
+    width auto
+  &::after
+    content ''
+    display block
+    position absolute
+    pointer-events none
+    top 50%
+    bottom 0
+    right 1em
+    margin-top -2px
+
+    /* V-shape arrow */
+    // width 8px
+    // height 8px
+    // border-right 2px solid #999
+    // border-bottom 2px solid #999
+    // transform rotate(45deg)
+    /* Traingle arrow */
+    width 0
+    height 0
+    border-style solid
+    border-width 6px 6px 0 6px
+    border-color c-blue transparent transparent transparent

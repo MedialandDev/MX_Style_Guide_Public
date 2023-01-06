@@ -1,0 +1,57 @@
+/*
+https://getbootstrap.com/docs/4.0/utilities/text/#font-weight-and-italics
+bootstrap 有
+.font-weight-bold
+.font-weight-normal
+.font-weight-light
+.font-italic
+
+*/
+/* Text styles */
+.text-justify
+  text-align justify
+  /* IE */
+  text-justify inter-ideograph
+  /* 沒加這行的話windows的chrome只會對文內的空白格作分散 */
+  word-break break-all
+  // &:after
+  // content ''
+  // display inline-block
+  // width 100%
+.style-link
+  &, &:link, &:hover, &:active, &:visited
+    color c-orange
+    text-decoration underline
+    cursor pointer
+/* Titles */
+.h1
+  font-size 2.5rem
+.h2
+  font-size 2rem
+.h3
+  font-size 1.75rem
+.h4
+  font-size 1.5rem
+.h5
+  font-size 1.25rem
+.h6
+  font-size 1rem
+article
+  p
+    line-height 1.6
+  a
+    @extend .style-link
+  b, strong
+    font-weight bold
+  small
+    font-size 12px
+  em
+    background-color #ddd
+  ul
+    @extend .style-disc
+  ol
+    @extend .style-decimal
+    ol
+      @extend .style-loweralpha
+      ol
+        @extend .style-disc

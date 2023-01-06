@@ -1,0 +1,36 @@
+/*
+https://getbootstrap.com/docs/4.4/utilities/sizing/
+這些是 bootstrap 內建的
+.w-25
+.w-50
+.w-75
+.w-100
+.mw-25
+.mw-50
+.mw-75
+.mw-100
+
+MX Team 擴充的
+.w-{md,lg,xl}-25
+.w-{md,lg,xl}-50
+.w-{md,lg,xl}-75
+.w-{md,lg,xl}-100
+.mw-{md,lg,xl}-25
+.mw-{md,lg,xl}-50
+.mw-{md,lg,xl}-75
+.mw-{md,lg,xl}-100
+*/
+
+$sizes = range(25, 100, 25)
+
+for $breakpointName, $breakpointSize in $grid-breakpoints
+  @media (min-width: $breakpointSize)
+    for $value in $sizes
+      .w-{$breakpointName}-{$value}
+        width unit($value, '%') !important
+      .w-{$breakpointName}-auto
+        width auto !important
+      .mw-{$breakpointName}-{$value}
+        max-width unit($value, '%') !important
+      .mw-{$breakpointName}-auto
+        max-width auto !important

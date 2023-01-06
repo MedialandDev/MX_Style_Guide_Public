@@ -1,0 +1,37 @@
+/*
+button 相關
+applyColors 會吃 BOOSTRAP_COLORS 變數
+.button.style-primary
+.button.style-secondary
+.button.style-warning
+.button.style-danger
+.button.style-darkgary
+*/
+button:focus
+  outline 0
+.button
+  color white
+  border 0
+  position relative
+  display inline-block
+  text-align center
+  user-select none
+  padding 0.5em 1em
+  border 1px solid transparent
+  // background-color c-primary
+  line-height 1.2
+  cursor pointer
+  applyColors(background-color border-color, true)
+  for name, color in BOOSTRAP_COLORS
+    &.style-outline-{name}
+      background-color transparent
+      color color
+      border 1px solid color
+      &:hover
+        background-color color
+        color white
+  &.style-fixed-width
+    width 200px
+  &.style-disabled
+    opacity 0.65
+    pointer-events: none

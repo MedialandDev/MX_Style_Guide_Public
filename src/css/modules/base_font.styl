@@ -1,0 +1,23 @@
+
+
+// 修正 微軟正黑體，在 bold 下，碧筵綰這三個字會多空格
+// https://lininu.blogspot.com/2016/01/blog-post.html
+// 修正粗體
+@font-face {
+  font-family: '微軟正黑體修正';
+  unicode-range: U+7db0, U+78A7, U+7B75;  // ASCII (碧筵綰)
+  font-style: normal;
+  font-weight: bold;
+  src: local(Yu Gothic), local(MS Gothic);
+}
+// 一般粗細的時候改回微軟正黑
+@font-face {
+  font-family: '微軟正黑體修正';
+  unicode-range: U+7db0, U+78A7, U+7B75; /* ASCII (碧筵綰) */
+  font-style: normal;
+  font-weight: normal;
+  src: local('微軟正黑體');
+}
+
+html, body
+  font-family Helvetica, Verdana, Arial,'微軟正黑體修正', '微軟正黑體', 'Microsoft JhengHei', '儷黑 Pro', 'LiHei Pro', sans-serif

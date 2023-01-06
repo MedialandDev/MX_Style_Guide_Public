@@ -1,0 +1,52 @@
+// https://v5.getbootstrap.com/docs/5.0/layout/breakpoints/
+// 參考 bootstrap 5 breakpoints
+$grid-breakpoints = {
+  // Extra small screen / phone
+  // xs: 0,
+  // Small screen / phone
+  sm: 576px,
+  // Medium screen / tablet
+  md: 768px,
+  // Large screen / desktop
+  lg: 992px,
+  // Extra large screen / wide desktop
+  xl: 1200px
+  // Extra large screen / wide desktop
+}
+
+c-blue = #369
+c-lightblue = #0cf
+c-orange = #e67e22
+c-red = #e74c3c
+c-pink = #fdd
+
+c-primary = #369
+c-secondary = #0cf
+c-success = #1abc9c
+c-info = #3498db
+c-dark = #343a40 // bootstrap default color
+c-muted = #6c757d // bootstrap default color
+c-light = #f8f9fa // bootstrap default color
+
+applyColor(stylusColorVar)
+  +cache(stylusColorVar)
+    color = stylusColorVar
+
+BOOSTRAP_COLORS = {
+  // bootstrap default color names
+  // https://getbootstrap.com/docs/4.3/utilities/colors/
+  primary   : c-primary
+  secondary : c-secondary
+  warning   : c-orange
+  success   : c-success
+  danger    : c-red
+  info      : c-info
+  black     : black
+  transparent: transparent
+  dark      : c-dark
+  light     : c-light
+  // Custom color
+  pink      : c-pink
+}
+
+

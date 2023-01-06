@@ -1,0 +1,25 @@
+
+.{{cssSpriteClassName}}
+  display inline-block
+  background url('~img/{{{spritesheet.escaped_image}}}') no-repeat
+  animation-name {{cssKeyframeName}}
+  animation-duration {{animationDuration}}
+  animation-iteration-count {{animationIterationCount}}
+  animation-timing-function steps(1)
+  animation-fill-mode both
+
+@keyframes {{cssKeyframeName}} {
+{{#each sprites}}
+  {{keyframePercent @index}} {
+    background-position {{px.offset_x}} {{px.offset_y}};
+  }
+{{#if (isEachLast @index)}}
+  to {
+    background-position {{px.offset_x}} {{px.offset_y}};
+  }
+}
+.{{cssSpriteClassName}}
+  width {{px.width}}
+  height {{px.height}}
+{{/if}}
+{{/each}}

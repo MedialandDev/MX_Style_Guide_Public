@@ -1,0 +1,32 @@
+/*
+擴充 bootstrap .row gutter
+https://getbootstrap.com/docs/4.4/layout/grid/#no-gutters
+.gutter-5
+.gutter-10
+.gutter-15
+.gutter-20
+.gutter-25
+
+.gutter-{md,lg,xl}-5
+.gutter-{md,lg,xl}-10
+.gutter-{md,lg,xl}-15
+.gutter-{md,lg,xl}-20
+.gutter-{md,lg,xl}-25
+  */
+$sizes = range(25, 100, 25)
+$gutters = range(5, 25, 5)
+
+generateGutter(mediumName = '')
+  for $value in $gutters
+    .gutter{mediumName}-{$value}
+      $toPX = unit($value, 'px')
+      margin-right $toPX * -0.5 !important
+      margin-left $toPX * -0.5 !important
+      > [class*='col-'], .col
+        padding-right $toPX * 0.5 !important
+        padding-left $toPX * 0.5 !important
+generateGutter()
+
+for $breakpointName, $breakpointSize in $grid-breakpoints
+  @media (min-width: $breakpointSize)
+    generateGutter('-' + $breakpointName)

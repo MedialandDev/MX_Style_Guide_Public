@@ -1,0 +1,29 @@
+/*
+或是用 boostrap 也有
+https://getbootstrap.com/docs/4.4/utilities/embed/
+*/
+.imgframe
+  position: relative
+  background-position center
+  background-size contain
+  background-repeat no-repeat
+  &::before
+    content ''
+    display block
+.imgframe-16to9
+  &::before
+    padding-top 56.25%
+.imgframe-4to3
+  &::before
+    padding-top 75%
+.imgframe-3to2
+  &::before
+    padding-top 66.67%
+.imgframe-1to1
+  &::before
+    padding-top 100%
+
+// https://v5.getbootstrap.com/docs/5.0/content/images/
+.img-fluid
+  max-width: 100%
+  height auto

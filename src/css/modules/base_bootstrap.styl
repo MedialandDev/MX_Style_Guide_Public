@@ -1,0 +1,49 @@
+// 如果有要蓋掉 bootstrap 的 css 就寫在這
+
+// 不使用 bootstrap .btn
+/*
+for name, color in BOOSTRAP_COLORS
+  .btn-{name}
+    border-color color
+    background-color color
+    &:hover
+      darkenColor = darken(color, 5)
+      border-color darkenColor
+      background-color darkenColor
+    &.active, &:active, &:focus
+      darkenColor = darken(color, 10)
+      border-color darkenColor
+      background-color darkenColor
+      box-shadow none !important
+      // box-shadow 0 0 0 0.15rem alpha(darkenColor, 0.3)
+    &.disabled, &:disabled
+      color #fff
+      pointer-events none
+      darkenColor = darken(color, 20)
+      border-color darkenColor !important
+      background-color darkenColor !important
+  .badge-{name}
+    background-color color
+*/
+
+// 不使用 bootstrap form-control
+/*
+.form-control
+  border-color rgb(96, 94, 92)
+  border-radius 0
+  &:hover
+    border-color rgb(50, 49, 48)
+  &:focus
+    border-color colorPrimary
+    box-shadow none
+  &.disabled
+    cursor not-allowed
+    pointer-events none
+    -webkit-cursor not-allowed
+.readonly
+  opacity 0.4
+  pointer-events none
+.btn
+  &.focus, &:focus
+    box-shadow none
+*/

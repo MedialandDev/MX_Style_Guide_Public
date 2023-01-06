@@ -1,0 +1,35 @@
+.table
+  display: table
+  width: 100%;
+  border-collapse: separate;
+  border-top 1px solid white
+  .thead
+    display: table-header-group
+  .tbody
+    display table-row-group
+  .tr
+    display: table-row
+  .th
+  .td
+    display: table-cell
+    vertical-align: top
+    text-align: center
+    padding: 5px 10px;
+    border: 1px solid white
+    border-top-color transparent
+  &.style-rwd
+    +mediaDown(768px)
+      .thead
+        display none
+      .tr
+        display block
+        .th
+          display block
+      .td
+        text-align: left
+        display: block
+        width 100%
+        &:before
+          content: attr(data-label);
+          display: inline-block;
+          min-width: 50%;

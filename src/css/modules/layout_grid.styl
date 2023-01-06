@@ -1,0 +1,83 @@
+// https://tailwindcss.com/docs/grid-template-columns
+
+.d-grid
+  display grid
+.d-inline-grid
+  display inline-grid
+for $breakpointName, $breakpointSize in $grid-breakpoints
+  +mediaUp($breakpointSize)
+    .d-{$breakpointName}-grid
+      display: grid
+    .d-{$breakpointName}-inline-grid
+      display: inline-grid
+
+for i in (1..12)
+  .grid-cols-{i}
+    grid-template-columns: repeat(i, minmax(0, 1fr));
+  .col-span-{i}
+    grid-column: span i / span i !important
+for i in (1..12)
+  .col-start-{i}
+    grid-column-start i !important
+  .col-end-{i}
+    grid-column-end: i !important
+
+.col-auto
+  grid-column: auto;
+.col-start-auto
+  grid-column-start: auto;
+.col-end-auto
+  grid-column-end: auto;
+.grid-cols-none
+  grid-template-columns: none;
+
+
+// https://tailwindcss.com/docs/grid-template-rows
+for i in (1..6)
+  .grid-rows-{i}
+    grid-template-rows: repeat(i, minmax(0, 1fr));
+  .row-span-{i}
+    grid-row: span i / span i;
+for i in (1..6)
+  .row-start-{i}
+    grid-row-start: i;
+  .row-end-{i}
+    grid-row-end: i;
+
+.row-end-auto
+  grid-row-end: auto;
+.row-start-auto
+  grid-row-start: auto;
+.row-auto
+  grid-row: auto;
+.grid-rows-none
+  grid-template-rows: none;
+
+// https://tailwindcss.com/docs/gap
+$GAP = 0 0.25 0.5 1 1.5 3
+for $value,idx in $GAP
+  $unitValue = unit($value, 'rem')
+  .gap-{idx}
+    gap $unitValue
+  .row-gap-{idx}
+    row-gap $unitValue
+  .col-gap-{idx}
+    column-gap: $unitValue
+
+/*
+$RANGE = range(5px, 20px, 5px)
+for $value in $SPACING
+  .gap-{$value}px
+    gap unit($value , 'px')
+*/
+
+
+// https://tailwindcss.com/docs/grid-auto-flow
+.grid-flow-row
+  grid-auto-flow: row;
+.grid-flow-col
+  grid-auto-flow: column;
+.grid-flow-row-dense
+  grid-auto-flow: row dense;
+.grid-flow-col-dense
+  grid-auto-flow: column dense;

@@ -1,0 +1,100 @@
+$radio-w = 20px
+$radio-padding = 3px
+
+.module-radio
+  position relative
+  cursor pointer
+  display inline-block
+  line-height $radio-w
+  min-width "calc(3em + %s)" % $radio-w // fit 2 words
+  vertical-align middle
+  input
+    z-index 3
+    position absolute
+    margin 0
+    width $radio-w
+    height $radio-w
+    opacity 0
+    cursor pointer
+  span
+    display inline-block
+    padding-left "calc(0.5em + %s)" % $radio-w
+    padding-right 0.5em
+    color $form-color
+    line-height $form-inner-line-height
+    .is-error &
+      color $form-error-color
+  &:hover
+    input:not(:checked) +
+      .module-symbol
+        &:before
+          opacity 0.35
+  &.style-disabled
+    pointer-events: none
+    span
+      color $form-disabled-color !important
+    .module-symbol
+      border-color $form-disabled-color !important
+  &.style-error
+    span
+      color $form-error-color !important
+    .module-symbol
+      border-color $form-error-color !important
+  
+  
+.module-symbol
+  border $form-border-width solid $form-border-color
+  border-radius 50%
+  position absolute
+  display inline-block
+  background-color white
+  width $radio-w
+  height $radio-w
+  z-index 0
+  &::before
+    content ''
+    position absolute
+    top $radio-padding
+    left $radio-padding
+    width ($radio-w - $form-border-width*2 - $radio-padding*2 )
+    height ($radio-w - $form-border-width*2 - $radio-padding*2 )
+    border-radius 50%
+    background $form-border-color
+    transition all 0.2s
+    transform rotate(-45deg)
+    opacity 0
+  input[type="radio"]:checked + &
+    border-color $form-checked-color
+    &::before
+      opacity 1
+      background-color $form-checked-color
+      .module-radio.style-error &
+        background-color $form-error-color
+      .module-radio.style-disabled &
+        background-color $form-disabled-color
+  input[type="checkbox"] + &
+    border-radius 0
+    &::before
+      border-radius 0
+      top 0
+      left $radio-padding
+      width round($radio-w - $form-border-width*0.5 - $radio-padding*0.5 )
+      height round($radio-w - $form-border-width*2 - $radio-padding*2 )
+      border 3px solid $form-border-color
+      background-color transparent
+      border-top none
+      border-right none
+      transform scale(0.65) translate(-5px, 2px) rotate(-45deg)
+  input[type="checkbox"]:checked + &
+    background-color $form-checked-color
+    border-color $form-checked-color
+    .module-radio.style-disabled &
+      background-color $form-disabled-color
+    .module-radio.style-error &
+      background-color $form-error-color
+    &::before
+      transform scale(0.65) translate(-5px, 2px) rotate(-45deg)
+      opacity 1
+      border-color white
+
+

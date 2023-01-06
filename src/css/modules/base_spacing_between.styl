@@ -1,0 +1,51 @@
+/*
+參考 tailwindcss, 不過單位是採用 boostrap4
+https://tailwindcss.com/docs/space
+預設 amount 0 - 5
+.space-x-{amount}
+.space-y-{amount}
+.space-x-{breakpointName}-{amount}
+.space-y-{breakpointName}-{amount}
+
+或是也支援 px
+預設 amount 5px,10px,15px,20px
+.space-x-{amount}px
+.space-y-{amount}px
+.space-x-{breakpointName}-{amount}px
+.space-y-{breakpointName}-{amount}px
+*/
+
+generateSpaceCode(breakpointName, name)
+  className = name == 'x' ? 'margin-left' : 'margin-top'
+  .space-{name}{breakpointName}-0 > * + *
+    {className}: 0 !important;
+  .space-{name}{breakpointName}-1 > * + *
+    {className}: 0.25rem !important;
+  .space-{name}{breakpointName}-2 > * + *
+    {className}: 0.5rem !important;
+  .space-{name}{breakpointName}-3 > * + *
+    {className}: 1rem !important;
+  .space-{name}{breakpointName}-4 > * + *
+    {className}: 1.5rem !important;
+  .space-{name}{breakpointName}-5 > * + *
+    {className}: 3rem !important;
+
+generateSpaceCode('', 'x')
+generateSpaceCode('', 'y')
+for $breakpointName, $breakpointSize in $grid-breakpoints
+  +mediaUp($breakpointSize)
+    generateSpaceCode('-' + $breakpointName, 'x')
+    generateSpaceCode('-' + $breakpointName, 'y')
+
+$SPACING = range(5px, 20px, 5px)
+for $value in $SPACING
+  .space-x-{$value}px > * + *
+    margin-left $value !important 
+  .space-y-{$value}px > * + *
+    margin-top $value !important
+  for $breakpointName, $breakpointSize in $grid-breakpoints
+    +mediaUp($breakpointSize)
+      .space-x-{breakpointName}-{$value}px > * + *
+        margin-left $value
+      .space-y-{breakpointName}-{$value}px > * + *
+        margin-top $value

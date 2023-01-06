@@ -1,0 +1,19 @@
+mixin checkbox()
+  label.module-radio(class=attributes.class, id=attributes.id)
+    - 
+      delete attributes.class
+      delete attributes.id
+    input(type="checkbox")&attributes(attributes)
+    i.module-symbol
+    span
+      block
+
+mixin radio()
+  label.module-radio(class=attributes.class, id=attributes.id)
+    - 
+      delete attributes.class
+      delete attributes.id
+    input(type="radio")&attributes(attributes)
+    i.module-symbol
+    span
+      block

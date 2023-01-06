@@ -1,0 +1,32 @@
+// https://getbootstrap.com/docs/4.4/content/typography/#lists
+/* 以下是 bootstrap 內建的 list class
+
+.list-unstyled
+  https://getbootstrap.com/docs/4.4/content/typography/#unstyled
+
+.list-inline
+  https://getbootstrap.com/docs/4.4/content/typography/#unstyled
+
+在 typography_list-style.styl 也有 ul ol 相關的 class
+*/
+.list-inside
+  list-style-position inside
+.list-outside
+  list-style-position outside
+.style-disc, .style-decimal
+  margin-bottom 1em
+  margin-left 1.5em
+.style-disc
+  list-style disc
+.style-decimal
+  list-style decimal
+.style-loweralpha
+  list-style lower-alpha
+.list-style-custom
+  list-style none
+  list-style-type: none;
+  li
+    &:before
+      content attr(data-label)
+      margin-left -20px
+      margin-right 10px

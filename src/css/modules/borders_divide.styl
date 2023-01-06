@@ -1,0 +1,14 @@
+// https://tailwindcss.com/docs/divide-width
+
+$RANGE = range(0px, 2px, 2px)
+
+for $value,i in $RANGE
+  .divide-x-{i} > * + *
+    border-left-width $value
+  .divide-y-{i} > * + *
+    border-top-width $value
+
+.divide-x > * + *
+  border-left-width: 1px;
+.divide-y > * + *
+  border-top-width: 1px;

@@ -1,0 +1,37 @@
+// https://tailwindcss.com/docs/top-right-bottom-left
+.inset-0
+  top 0
+  right 0
+  bottom 0
+  left 0
+.inset-y-0
+  top 0
+  bottom 0
+.inset-x-0
+  right 0
+  left 0
+.top-0
+  top 0
+.right-0
+  right 0
+.left-0
+  left 0
+.bottom-0
+  bottom 0
+.inset-auto
+  top auto
+  right auto
+  bottom auto
+  left auto
+
+$INSET_SIZE = range(5, 20, 5)
+for $value in $INSET_SIZE
+  $px = unit($value, 'px')
+  .left-{$value}px
+    left $px !important
+  .top-{$value}px
+    top $px !important
+  .right-{$value}px
+    right $px !important
+  .bottom-{$value}px
+    bottom $px !important

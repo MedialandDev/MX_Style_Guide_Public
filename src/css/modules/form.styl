@@ -1,0 +1,61 @@
+/* Reset */
+input, textarea, select, button
+  font-size: 1rem
+::-ms-clear
+   display: none
+input,textarea,select
+  border-width 0
+  color inherit
+  background-color white
+  &:focus
+    outline none
+button,input[type="submit"],input[type="reset"]
+  border 0
+  appearance none
+select::-ms-expand
+  opacity 0
+
+/* Other elements */
+.form-title
+  line-height $form-inner-line-height
+  margin $form-margin 0
+.error-msg
+  margin-top $form-margin
+  color c-red
+  line-height $form-inner-line-height
+  &.style-ic
+    &:before
+      display inline-block
+      content embedurl('./icons/exclamation-mark.svg')
+      width 15px
+      height @width
+      margin-right 3px
+.module-radiogroup
+  line-height 2
+
+/* Form elements distances */
+input, textarea, .module-radio, .select-wrap
+  &+input, &+textarea, &+.error-msg, &+.select-wrap
+    margin-top $form-margin
+
+
+.form
+  &.style-readonly
+    pointer-events: none
+    input.input
+      font-size 14px
+      pointer-events: none
+      padding 0
+      border 0
+      background-color transparent
+      height auto
+      line-height initial !important
+    .select-wrap
+      &:after
+        display none
+      select.select
+        background-color transparent
+        font-size 14px
+        height auto
+        line-height initial !important
+        border 0
