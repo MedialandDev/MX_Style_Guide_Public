@@ -10,23 +10,18 @@ $grid-breakpoints = {
   // Large screen / desktop
   lg: 992px,
   // Extra large screen / wide desktop
-  xl: 1200px
+  xl: 1200px,
   // Extra large screen / wide desktop
+  xxl: 1400px,
+  fhd: 1920px,
 }
 
+// #NOTE: 自訂的顏色，色碼可以整理在這裡，全站 CSS 即可共用這個變數
 c-blue = #369
 c-lightblue = #0cf
 c-orange = #e67e22
 c-red = #e74c3c
 c-pink = #fdd
-
-c-primary = #369
-c-secondary = #0cf
-c-success = #1abc9c
-c-info = #3498db
-c-dark = #343a40 // bootstrap default color
-c-muted = #6c757d // bootstrap default color
-c-light = #f8f9fa // bootstrap default color
 
 applyColor(stylusColorVar)
   +cache(stylusColorVar)
@@ -35,18 +30,19 @@ applyColor(stylusColorVar)
 BOOSTRAP_COLORS = {
   // bootstrap default color names
   // https://getbootstrap.com/docs/4.3/utilities/colors/
-  primary   : c-primary
-  secondary : c-secondary
-  warning   : c-orange
-  success   : c-success
-  danger    : c-red
-  info      : c-info
+  // #NOTE: 要改BOOSTRAP的顏色，色碼可以在這裡設定，會覆蓋更改顏色相關的BOOTSTRAP CLASS (text-XX, bg-XX, border-XX ...等)
+  primary   : #007bff
+  secondary : #6c757d
+  success   : #28a745
+  danger    : #dc3545
+  warning   : #ffc107
+  info      : #17a2b8
+  light     : #f8f9fa
+  dark      : #343a40
+  white     : white
   black     : black
   transparent: transparent
-  dark      : c-dark
-  light     : c-light
-  // Custom color
+  // Custom colors
+  // #NOTE: 要建立新的顏色，可以填寫在這裡，會新增顏色相關的BOOTSTRAP CLASS (text-XX, bg-XX, border-XX ...等)
   pink      : c-pink
 }
-
-
