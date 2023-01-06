@@ -5,40 +5,52 @@
 @require 'vendors/reset.css'
 
 /* Global mixins & extends */
+// #NOTE: 這裡是各種不會產生CSS的內容，例如可供引用的常數、函式等
 @require 'mixins/_index'
-@require 'modules/base_init' // Box model, Antialiased, Resets, Selection styles, Scroll bar styles.
 
 /* Global styles */
+// #NOTE: 這裡是全域排版環境設定 Box model, Antialiased, Resets, Selection 樣式, Scroll bar 樣式
 @require 'modules/base_init'
+// #NOTE: 如果有要蓋掉 bootstrap 的 css 就寫在這
 @require 'modules/base_bootstrap'
+// #NOTE: 要使用顏色列表產生哪些CLASS，寫在這邊
 @require 'modules/base_color'
+// #NOTE: font-face定義，全站字體設定
 @require 'modules/base_font'
+// #NOTE: 這裡是 css 動畫的 keyframe
 @require 'modules/base_keyframes'
-@require 'modules/base_position'
+// #NOTE: 這裡是擴充 bootstrap padding margin CLASS
 @require 'modules/base_spacing'
+// #NOTE: 這裡是擴充 bootstrap space CLASS
 @require 'modules/base_spacing_between'
-@require 'modules/base_container'
+// #NOTE: 這裡是寫 table 表格的樣式
 @require 'modules/base_table'
-
-@require 'modules/flexbox_flex'
+// #NOTE: 這裡是寫 display: grid 的擴充樣式
 @require 'modules/layout_grid'
+// #NOTE: 這裡是寫 top right bottom left 值的樣式
 @require 'modules/layout_inset'
+// #NOTE: 這裡是寫 bootstrap row col 的 gutter 值的擴充樣式
 @require 'modules/layout_row_columns'
+// #NOTE: 這裡是寫 bootstrap 寬度 w- mw- 值的擴充樣式
 @require 'modules/layout_size'
+// #NOTE: 這裡是寫 z-index 值的樣式
 @require 'modules/layout_z-index'
+// #NOTE: 這裡是寫 object-fit 值的樣式 (contain, cover)
 @require 'modules/layout_object_fit'
+// #NOTE: 這裡是寫 overflow 值的擴充樣式
 @require 'modules/layout_overflow'
-@require 'modules/vue_transition'
-@require 'modules/borders_divide.styl'
-@require 'modules/transforms.styl'
+
 
 /* Modules */
-@require 'modules/typography_letter-spacing'
-@require 'modules/typography_line-height'
+// #NOTE: 這裡是寫 GUIDELINE 定義的各種 container 樣式，或更改 .container 的樣式
+@require 'modules/base_container'
+// #NOTE: 這裡是寫 ul ol li 的列點樣式
 @require 'modules/typography_list-style'
+// #NOTE: 這裡是寫 GUIDELINE 定義的全站所有文字樣式、跟預定義的一些文字樣式
 @require 'modules/typography'
-
+// #NOTE: 這裡是寫 GUIDELINE 定義的全站所有按鈕樣式
 @require 'modules/button'
+// #NOTE: 這裡是寫 GUIDELINE 定義的全站所有表格樣式
 @require 'modules/form'
 @require 'modules/form-input' // input, textarea
 @require 'modules/form-select' // select, date
@@ -50,6 +62,16 @@
 @require 'modules/news'
 
 
-// #NOTE: 全站 STYLE 直接寫在這裡蓋過去即可
+// #NOTE: 全站 STYLE 直接寫在這裡蓋過去亦可
+
 input.input
     border 2px solid red
+.cursor-pointer
+  cursor pointer
+.pointer-events-none
+  pointer-events none
+.select-none
+  -webkit-user-select: none!important;
+  -moz-user-select: none!important;
+  -ms-user-select: none!important;
+  user-select: none!important;

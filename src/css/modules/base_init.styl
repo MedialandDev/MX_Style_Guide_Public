@@ -21,7 +21,7 @@ body
 ::selection
   background c-orange
   color white
-  
+
 /* Resets */
 a, a:hover
   text-decoration none
@@ -37,23 +37,10 @@ picture
   display inline-block
 main
   display block
-.cursor-pointer
-  cursor pointer
+
 .clearfix
   &:before, &:after
     display table
     content ' '
   &:after
     clear both
-// GTM
-.click-self, [data-category], [data-action], [data-label]
-  > *
-    pointer-events none
-.pointer-events-none
-  pointer-events none
-
-.select-none
-  -webkit-user-select: none!important;
-  -moz-user-select: none!important;
-  -ms-user-select: none!important;
-  user-select: none!important;
