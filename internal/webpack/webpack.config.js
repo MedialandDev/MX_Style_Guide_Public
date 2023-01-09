@@ -27,6 +27,7 @@ const webpackConfig = {
   context: path.resolve('src'),
   entry: {
     index: ['./index.js'],
+    myNewPage: ['./my-new-page.js'], // entry名稱不能用-符號，因此改用camelCase
   },
   devtool: DEV_MODE ? 'inline-source-map' : false,
   output: {
@@ -219,6 +220,11 @@ const webpackConfig = {
       template: 'html/index.pug',
       filename: 'index.html',
       chunks: ['index', 'commons', 'vendors'],
+    }, { }), // 第二參數可以傳變數給 pug
+    createHtmlWebpackPlugin({
+      template: 'html/my-new-page.pug',
+      filename: 'my-new-page.html',
+      chunks: ['myNewPage', 'commons', 'vendors'], // chunks內為entry名稱，不能用-符號，因此改用camelCase
     }, { }), // 第二參數可以傳變數給 pug
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer',

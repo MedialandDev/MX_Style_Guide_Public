@@ -2,52 +2,65 @@
 
 ## 切版專案 Quick Start
  - https://nodejs.org/en/download/ 安裝 node.js (範例使用v16.14.2)
- - terminal 執行 npm i 即可安裝所需套件
- - terminal 執行 npm run start 即可啟動
- - 瀏覽 localhost:3000 即可預覽畫面
+ - terminal 執行 ``npm i`` 即可安裝所需套件
+ - terminal 執行 ``npm run start`` 即可啟動
+ - 瀏覽 ``localhost:3000`` 即可預覽畫面
  - 新增一個頁面的步驟:
-     - 複製 src\index.js 更名為新頁面名稱 (例: about.js)
-     - about.js 內第一行 ``import './css/index.styl';`` 更名為新頁面名稱，例: ``import './css/about.styl';``
-     - 複製檔案 src\css\index.styl 更名為新頁面名稱 (例: about.styl)
-     - 複製檔案 src\html\index.pug 更名為新頁面名稱 (例: about.pug)
-     - internal\webpack\webpack.config.js 設定檔裡，新增兩段內容:
-     1. webpack.config.js 設定檔裡，新增一個 entry
-        - 複製第29行:
-            ```
-                index: ['./index.js'],
-            ```
-        - 並更改為新頁面名稱，例:
-            ```
-                about: ['./about.js'],
-            ```
-        - 貼在 29行下面
+     
+    - 執行 ``npm run plop``，並輸入想要新增的頁面名稱(例: about )，即會自動新增:
+      (名稱請使用kebab-case，也就是小寫加上-符號)
+        ```
+            src\新頁面名稱.js
+            src\css\新頁面名稱.styl
+            src\html\新頁面名稱.pug
+        ```
+        以上三個檔案。或也可以選用手動新增: 新增步驟為:
+        ```
+            1. 複製 src\index.js 更名為新頁面名稱 (例: about.js)
+            2. about.js 內第一行 ``import './css/index.styl';`` 更名為新頁面名稱，例: ``import './css/about.styl';``
+            3. 複製檔案 src\css\index.styl 更名為新頁面名稱 (例: about.styl)
+            4. 複製檔案 src\html\index.pug 更名為新頁面名稱 (例: about.pug)
+        ```
+     
+    - internal\webpack\webpack.config.js 設定檔裡，新增兩段內容:
+        1. webpack.config.js 設定檔裡，新增一個 entry
+            - 複製第29行:
+                ```
+                    index: ['./index.js'],
+                ```
+            - 並更改為新頁面名稱，例:
+                ```
+                    about: ['./about.js'],
+                ```
+            - 貼在 29行下面
 
-    2. webpack.config.js 設定檔裡，新增一個 createHtmlWebpackPlugin
-        - 複製第219-223行:
-            ```
-                createHtmlWebpackPlugin({
-                template: 'html/index.pug',
-                filename: 'index.html',
-                chunks: ['index', 'commons', 'vendors'],
-                }, { }), // 第二參數可以傳變數給 pug
-            ```
-        - 並更改為新頁面名稱，例:
-            ```
-                createHtmlWebpackPlugin({
-                template: 'html/about.pug',
-                filename: 'about.html',
-                chunks: ['about', 'commons', 'vendors'],
-                }, { }),
-            ```
-        - 貼在 223行下面
-     - 以上兩步驟完成後，輸入 Ctrl + C 停止 terminal
 
-    - terminal 再次執行 npm run start 即可重新啟動
-    - 重新啟動後，瀏覽 localhost:3000/about.html 即可預覽新頁面的畫面
-    - 新頁面的 HTML 內容，進入 src\html\about.pug 即可編輯
-    - 新頁面的 CSS 內容，進入 src\css\about.styl 即可編輯
-    - 新頁面的 JS 內容，進入 src\about.js 即可編輯
-    - 新頁面的 IMG 內容，放入 src\assets\img 內，從 HTML/CSS裡輸入路徑 `` ~img/圖檔名稱.jpg `` 即可取用
+        2. webpack.config.js 設定檔裡，新增一個 createHtmlWebpackPlugin
+            - 複製第219-223行:
+                ```
+                    createHtmlWebpackPlugin({
+                    template: 'html/index.pug',
+                    filename: 'index.html',
+                    chunks: ['index', 'commons', 'vendors'],
+                    }, { }), // 第二參數可以傳變數給 pug
+                ```
+            - 並更改為新頁面名稱，例:
+                ```
+                    createHtmlWebpackPlugin({
+                    template: 'html/about.pug',
+                    filename: 'about.html',
+                    chunks: ['about', 'commons', 'vendors'],
+                    }, { }),
+                ```
+            - 貼在 223行下面
+    - 以上兩步驟完成後，輸入 ``Ctrl + C`` 停止 terminal
+
+    - terminal 再次執行 ``npm run start`` 即可重新啟動
+    - 重新啟動後，瀏覽 ``localhost:3000/about.html`` 即可預覽新頁面的畫面
+    - 新頁面的 HTML 內容，進入 ``src\html\about.pug`` 即可編輯
+    - 新頁面的 CSS 內容，進入 ``src\css\about.styl`` 即可編輯
+    - 新頁面的 JS 內容，進入 ``src\about.js`` 即可編輯
+    - 新頁面的 IMG 內容，放入 ``src\assets\img`` 內，從 HTML/CSS裡輸入路徑 `` ~img/圖檔名稱.jpg `` 即可取用
 
 ## 線上 guide.html Demo
 TBC
@@ -60,12 +73,14 @@ TBC
 - eslint 有紅字請修正
 
 ## npm script
-- 啟動：npm run start
-- 打包：npm run build
+- 啟動： ``npm run start``
+- 打包： ``npm run build``
+- 新增頁面： ``npm run plop``
+
 
 ## development 
 - 專案都以 webpack 開發
-- 測試站一率都要放 robots.txt, 檔案在 guide/robots.txt
+- 測試站一律都要放 robots.txt, 檔案在 guide/robots.txt
 
 ## Javascript Guide
 - 採用 js es6
@@ -131,9 +146,9 @@ TBC
     - h1-h6 另設 class 寫樣式，便於調整SEO。
     - Example
         - (X) h1 { line-height: 1.6 }
-        - (O) article h1, .h1 { line-height: 1.6 }
+        - (O) article.article h1, .h1 { line-height: 1.6 }
         - (O) .title-bordered { line-height: 1.6 }
-        - (O) article p { line-height: 1.6 }
+        - (O) article.article p { line-height: 1.6 }
 
 - Font-Size
     - html
@@ -152,7 +167,7 @@ TBC
     - 非文字元素： reset 為 1。
 
 #### Breakpoints
-- import bootstrap.css (v4.4.1) - 768px, 992px, 1200px
+- import bootstrap.css (v4.4.1) - 576px, 768px, 992px, 1200px
 
 #### Colors
 - 不 follow Bootstrap。
@@ -164,12 +179,14 @@ TBC
     - (O) c-red
 
 #### Grid System
-- import bootstrap.css (v4.4.1)
-- 未經 customize (gutter: 30px)
-- 已新增 .gutter-{size} class 於 size.styl 可使用
+- 已有 import bootstrap.css (v4.4.1)
+- 此bootstrap 為原始版，並未經過 customize (gutter為 30px)
+- 已有新增 .gutter-{size} 的擴充class 於 size.styl ，可以使用
 
 #### 其他
-- 除了 h1 - h6，不要針對 tag 直接寫 style
+- 不要針對 tag 直接寫 style
 - Example
     - (X) button { width: 100px; }
     - (O) .custom-btn { width: 100px; }
+    - (X) h1 { font-size: 32px; }
+    - (O) .h1 { font-size: 32px; }

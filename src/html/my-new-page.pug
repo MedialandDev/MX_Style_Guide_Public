@@ -1,0 +1,19 @@
+//- 這頁是 demo extends _master 用
+extends _master
+block variables
+  - 
+    var title = 'my-new-page'
+    var description = 'my-new-page'
+
+block content
+  .page-my-new-page hi my-new-page
+    .p-4
+      .h2 全站都可以直接使用 bootstrap 的 class
+      a.style-link(target="_blank" href="https://getbootstrap.com/docs/4.0/getting-started/introduction/") https://getbootstrap.com/docs/4.0/getting-started/introduction/ 
+      .row.align-items-center
+        .col-6
+          input.input(placeholder="TEST")
+        .col-6
+          img.img-test.w-100(src="~img/fb.png")
+          
+block lastBody
