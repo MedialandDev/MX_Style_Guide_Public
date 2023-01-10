@@ -94,8 +94,7 @@ TBC
 ```
     /css
         /base - 所有專案共用 mixins/extends, 全站共用樣式各個細項
-        /handlebars - hbs file etc. (spritesmith用)
-        
+                
         /mixins - 放 stylus 變數、function、不包含實際的 .class, 檔名都加 _ 開頭
 
         /modules - 個別 dom 物件/components 樣式

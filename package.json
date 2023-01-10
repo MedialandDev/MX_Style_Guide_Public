@@ -7,7 +7,6 @@
     "start": "cross-env NODE_ENV=development APP_ENV=development webpack-dev-server --config internal/webpack/webpack.config.js",
     "build": "rimraf ./dist && cross-env NODE_ENV=production APP_ENV=production webpack --config internal/webpack/webpack.config.js --progress --hide-modules",
     "plop": "plop --plopfile ./internal/generator/index.js",
-    "gulp": "gulp",
     "push-master": "git checkout master && git merge dev --no-ff && git push && git checkout dev"
   },
   "browserslist": [
@@ -58,11 +57,6 @@
     "file-loader": "^6.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "gsap": "^3.3.0",
-    "gulp": "^4.0.2",
-    "gulp-changed": "^4.0.2",
-    "gulp-imagemin": "^7.1.0",
-    "gulp-size": "^3.0.0",
-    "gulp.spritesmith": "^6.11.0",
     "html-loader": "^0.5.5",
     "html-webpack-include-assets-plugin": "^2.0.0",
     "html-webpack-plugin": "^4.3.0",
