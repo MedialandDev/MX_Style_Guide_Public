@@ -70,7 +70,7 @@ TBC
 
 ## eslint
 - JS 用 airbnb base
-- eslint 有紅字請修正
+- eslint 若有紅字，請修正
 
 ## npm script
 - 啟動： ``npm run start``
@@ -82,6 +82,12 @@ TBC
 - 專案都以 webpack 開發
 - 測試站一律都要放 robots.txt, 檔案在 guide/robots.txt
 
+## 打包步驟
+- 執行： ``npm run build`` build 出打包檔，會 build 到 /dist 資料夾
+- 切版 demo 網址，使用 githubPage： https://medialanddev.github.io/MX_Style_Guide_Public/dist-build/
+- 如需更新 demo, 請將 build 出的 /dist 資料夾，手動複製貼上到 /dist-build 資料夾，並推版到 master 分支，五分鐘後 githubPage 便會自動更新
+- 測試站一律都要放 robots.txt, 檔案在 src/assets/copy/robots.txt， build 時會自動複製到根目錄
+
 ## Javascript Guide
 - 採用 js es6
 
@@ -92,17 +98,24 @@ TBC
 ### Repository
 
 ```
-    /css
-        /base - 所有專案共用 mixins/extends, 全站共用樣式各個細項
-                
-        /mixins - 放 stylus 變數、function、不包含實際的 .class, 檔名都加 _ 開頭
+    /internal/webpack/webpack.config.js - 在這裡設定 entry, 並使用 createHtmlWebpackPlugin 註冊新頁面
+    /src
+        /css
+            /base - 所有專案共用 mixins/extends, 全站共用樣式各個細項
+                    
+            /mixins - 放 stylus 變數、function、不包含實際的 .class, 檔名都加 _ 開頭
 
-        /modules - 個別 dom 物件/components 樣式
-            命名可以參考 https://tailwindcss.com/
-        /vendors - 外部套件樣式
-        common.styl - 全站共用樣式 (挑選需要的 modules & vendors include)
-        {pagename}.styl - 頁面樣式 (需include common.styl)
+            /modules - 個別 dom 物件/components 樣式
+                命名可以參考 https://tailwindcss.com/
+            /vendors - 外部套件樣式
+            common.styl - 全站共用樣式 (挑選需要的 modules & vendors include)
+            {pagename}.styl - 頁面樣式 (需include common.styl)
 
+        /assets
+            /copy - 這裡放的東西，會直接複製到切版的根目錄
+            /img - 放圖檔
+        /html - 這裡放 pug 檔
+        /utils - 這裡放要寫給 js export 的 modules
 ```
 
 ### CSS Naming
@@ -116,6 +129,11 @@ TBC
         - (X) .style-dark { background-color: #333; color: white; }
         - (O) button.style-dark { background-color: #333; color: white; }
 
+- 為了方便了解 class 含意，傾向使用完整單字，少使用簡稱
+    - Example
+        - (O) .button-submit
+        - (O) .btn-submit
+        - (X) .b-s
 
 #### CSS Naming Examples:
 - .nav
