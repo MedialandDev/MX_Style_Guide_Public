@@ -36,7 +36,7 @@
 
 
         2. webpack.config.js 設定檔裡，新增一個 createHtmlWebpackPlugin
-            - 複製第219-223行:
+            - 複製第220-224行:
                 ```
                     createHtmlWebpackPlugin({
                     template: 'html/index.pug',
@@ -52,7 +52,7 @@
                     chunks: ['about', 'commons', 'vendors'],
                     }, { }),
                 ```
-            - 貼在 223行下面
+            - 貼在 224行下面
     - 以上兩步驟完成後，輸入 ``Ctrl + C`` 停止 terminal
 
     - terminal 再次執行 ``npm run start`` 即可重新啟動

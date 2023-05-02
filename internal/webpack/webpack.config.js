@@ -27,6 +27,7 @@ const webpackConfig = {
   context: path.resolve('src'),
   entry: {
     index: ['./index.js'],
+    guide: ['./guide.js'],
     myNewPage: ['./my-new-page.js'], // entry名稱不能用-符號，因此改用camelCase
   },
   devtool: DEV_MODE ? 'inline-source-map' : false,
@@ -220,6 +221,11 @@ const webpackConfig = {
       template: 'html/index.pug',
       filename: 'index.html',
       chunks: ['index', 'commons', 'vendors'],
+    }, { }), // 第二參數可以傳變數給 pug
+    createHtmlWebpackPlugin({
+      template: 'html/guide.pug',
+      filename: 'guide.html',
+      chunks: ['guide', 'commons', 'vendors'],
     }, { }), // 第二參數可以傳變數給 pug
     createHtmlWebpackPlugin({
       template: 'html/my-new-page.pug',
