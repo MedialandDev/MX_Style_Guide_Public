@@ -3,3 +3,14 @@
   font-weight: bold;
   .big
     font-size: 40px;
+
+.form-input
+  &.error
+    border-color: red;
+  &:focus, &.error
+    &+.valid-message-box
+      max-height: 100px;
+.valid-message-box
+  overflow: hidden;
+  transition: max-height 1s;
+  max-height: 0;

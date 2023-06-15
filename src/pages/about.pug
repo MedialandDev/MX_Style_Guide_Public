@@ -1,20 +1,20 @@
 h1 Hello about
-p I'm a cool Vite project!
-<div class="space-y-4">
-  <div class="w-96 bg-green-600 shadow rounded text-beige">
-      | w-96
-  </div>
-  <div class="w-80 bg-white shadow rounded qmo">
-    div(class="big")
-      | w-80
-  </div>
-  <div class="w-72 bg-white shadow rounded">
-      | w-72
-  </div>
-  <div class="w-64 bg-white shadow rounded">
-      | w-64
-  </div>
-  <div class="w-60 bg-white shadow rounded">
-      | w-60
-  </div>
-</div>
+
+mixin formInput(className, number)
+  include ../components/formInput.pug
+
+form
+  +formInput("form-input-1", 3)
+  +formInput("form-input-2", 1)
+  button(type="button" onclick="submitFunc()") submit
+div(class="result")
+
+script.
+  const submitFunc = () => {
+    document.querySelectorAll('input').forEach((item) => {
+      item.focus()
+      item.blur()
+    })
+
+    document.querySelector('.result').innerText = Array.from(document.querySelectorAll('form .valid')).every((e) => e.className.includes('text-green-400')) ? 'success' : 'fail'
+  }
