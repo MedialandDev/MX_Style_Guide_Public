@@ -8,7 +8,7 @@ import VirtualHtml from 'vite-plugin-virtual-html'
 const pageList = [
   // index 為預設頁面, 不能移除
   { path: 'index', title: 'demo', pug: 'demo', script: '' },
-  { path: 'about', title: 'about', pug: 'about', script: 'about' },
+  { path: 'about', title: 'about', pug: 'about', script: 'main' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
 ]
 
@@ -20,7 +20,8 @@ pageList.forEach((item) => {
     data: {
       title: item.title,
       pug: `<pug src="src/pages/${item.pug}.pug"></pug>`,
-      script: item.script && `<script type="module" src="src/js/${item.script}.js"></script>`
+      // main.js 放 tailwind and other css
+      script: item.script && `<script type="module" src="src/js/${item.script}.js"></script><script type="module" src="src/main.js"></script>`,
     }
   }
 })

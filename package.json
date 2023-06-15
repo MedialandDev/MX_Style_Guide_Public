@@ -9,9 +9,18 @@
     "preview": "vite preview"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.14",
     "ejs": "^3.1.9",
+    "postcss": "^8.4.24",
+    "pug": "^3.0.2",
+    "stylus": "^0.59.0",
+    "tailwindcss": "^3.3.2",
     "vite": "^4.3.9",
     "vite-plugin-pug": "^0.3.2",
     "vite-plugin-virtual-html": "^1.1.9"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^4.2.3",
+    "vue": "^3.3.4"
   }
 }
