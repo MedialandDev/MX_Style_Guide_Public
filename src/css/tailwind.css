@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .h1 {
+    @apply text-[34px] lg_text-[52px] text-black font-bold leading-150 lg_leading-120 tracking-[.02em] lg_tracking-[.04em];
+  }
+  .h2 {
+    @apply text-[28px] lg_text-[36px] text-black font-bold leading-150 tracking-[.03em];
+  }
+  .h3 {
+    @apply text-[22px] lg_text-[28px] text-black font-bold leading-150 tracking-[.03em];
+  }
+  .h4 {
+    @apply text-[18px] lg_text-[20px] text-black font-normal leading-150 tracking-[.03em];
+  }
+  .h4-bold {
+    @apply text-[18px] lg_text-[20px] text-black font-bold leading-150 tracking-[.03em];
+  }
+  .body {
+    @apply text-base lg_text-lg text-black font-normal leading-150 tracking-[.03em];
+  }
+  .body-bold {
+    @apply text-base lg_text-lg text-black font-bold leading-150 tracking-[.03em];
+  }
+  .link-text {
+    @apply text-base lg_text-lg text-[#00BB73] font-bold leading-7 block tracking-[.05em] underline-offset-4 underline;
+  }
+  .button-text {
+    @apply text-[15px] lg_text-base text-black font-bold leading-100 lg_leading-150 tracking-[.05em];
+  }
+  .caption {
+    @apply text-xs lg_text-[13px] text-black font-normal leading-150 tracking-[.05em];
+  }
+  .footer-text {
+    @apply text-[13px] lg_text-[14px] text-black font-normal leading-150 tracking-normal;
+  }
+  /* //按鈕外觀樣式 */
+  .btn-primary {
+    @apply max-w-[200px] w-full cursor-pointer rounded-[100px] py-15px bg-transparent border-solid border border-pink flex gap-8px justify-center items-center hover_bg-pink transition;
+  }
+  .text-link {
+    @apply flex gap-[10px] items-center text-[15px]  text-pink font-normal leading-180 tracking-[0.45px] hover_opacity-60 transition;
+  }
+  /* 漸層顏色 */
+  .linear-grad-1 {
+    @apply bg-gradient-to-r from-orange to-pink;
+  }
+  .linear-grad-2 {
+    @apply bg-gradient-to-r from-green to-blue;
+  }
+}
+/* 容器大小 */
+.container{
+  max-width: 1300px;
+}
+
+/* 全域字體設定 */
