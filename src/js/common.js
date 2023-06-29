@@ -9,10 +9,10 @@ export const formComponentValid = (validateList) => {
     eventList.forEach((item, index) => {
       formInput.addEventListener(item, (e) => {
         ruleList.forEach(({ rule }, index) => {
-          messageList[index].classList.toggle('text-green-400', rule(e.target.value))
+          messageList[index].classList.toggle('text-s2-400', rule(e.target.value))
         })
         e.target.classList.toggle('error', ruleList.some(({ rule }) => !rule(e.target.value)))
-        // e.target.classList.toggle('border-green-400', ruleList.every(({ rule }) => rule(e.target.value)))
+        // e.target.classList.toggle('border-s2-400', ruleList.every(({ rule }) => rule(e.target.value)))
       })
     })
   })

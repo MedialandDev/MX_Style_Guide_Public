@@ -1,58 +1,82 @@
 include ../components/header.pug
-
-
 section.container
   h1.h1 文字
-  .flex.items-center.gap-5.flex-wrap.py-60px
+  .flex.items-center.gap-5.flex-wrap.py-24px
     h1.h1 h1 
     h2.h2 h2 
     h3.h3 h3 
-    h4.h4 h4
-    h4.h4-bold h4-bold
     p.body body
-    p.body-bold body-bold
-    p.link-text Link Text
     p.button-text button-text
-    p.caption Caption 
-    p.footer-text footer-text 
-  h1.h1 主要顏色
-  .flex.items-center.gap-5.py-60px
-    p.text-orange #F0844A - orange 
-    p.text-pink #C70067 - pink
-    p.text-green #35B597 - green
-    p.text-blue #005D91 - blue
-  h1.h1 輔助顏色
-  .flex.items-center.gap-5.py-60px
-    p.text-black #313334 - black
-    p.text-dark-gray #585A5C - dark-gray
-    p.text-light-gray #9FA0A0 - light-gray
-    p.text-white #FFFEFD - white
+  .grid.grid-cols-2
+    .row
+      h1.h1 主要色
+      .flex.items-center.gap-5.py-24px.flex-wrap
+        p.text-s1 #F0844A - s1
+        p.text-s3 #C70067 - s3
+        p.text-s2 #35B597 - s2
+        p.text-s4 #005D91 - s4
+    .row
+      h1.h1 輔助顏色
+      .flex.items-center.gap-5.py-24px.flex-wrap
+        p.text-gray1 #313334 - gray1
+        p.text-gray2 #585A5C - gray2
+        p.text-gray3 #9FA0A0 - gray3
+        p.text-w1 #FFFEFD - w1
   h1.h1 FONT 
   p 思源黑體/tw Tajawal/en
   
-  h1.h1.py-60px 互動元件設定
-    h2.h2 主選單
-    .flex.items-center.gap-5.py-30px
+  h1.h1.py-24px 互動元件設定
+    .flex.items-center.gap-5.py-24px.flex-wrap
+      h2.h2 主選單
+      a.memu-text 台電故事
+    .flex.items-center.gap-5.py-24px.flex-wrap
+      h2.h2 TAB按鈕
+      a.tab-btn 分類篩選
+    .flex.items-center.gap-5.py-24px.flex-wrap
       h2.h2 按鈕+icon
       //- grup 用於當你btn hover時，子層也有做變換效果/
-      .btn-primary.group
-        .button-text.text-pink.group-hover_text-white 按鈕名稱
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-pink group-hover_text-white">
+      .button-primary.group
+        .button-text.text-s3.group-hover_text-w1 按鈕名稱
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon text-s3 group-hover_text-w1">
           <path d="M1.50024 7.99958L14.9242 7.99967M14.9242 7.99967L9.35574 2.43121M14.9242 7.99967L9.35573 13.5681" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      button.btn-primary.group
-        .button-text.text-pink.group-hover_text-white 附件檔案名稱
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-pink group-hover_text-white">
+      button.button-primary.group
+        .button-text.text-s3.group-hover_text-w1 附件檔案名稱
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon text-s3 group-hover_text-w1">
         <path d="M2.25 11.9375V13.5313C2.25 13.9539 2.41791 14.3593 2.7168 14.6582C3.01568 14.9571 3.42106 15.125 3.84375 15.125L13.4063 15.125C13.8289 15.125 14.2343 14.9571 14.5332 14.6582C14.8321 14.3593 15 13.9539 15 13.5313V11.9375M11.8125 8.75L8.625 11.9375M8.625 11.9375L5.4375 8.75M8.625 11.9375V2.375" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-    .flex.items-center.gap-5.py-30px
+    .flex.items-center.gap-5.py-24px.flex-wrap
       h2.h2 CMS/文字連結
       a.text-link(href="#") 文字連結
         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
            <path d="M2 11.0001L18.1563 11.0001M18.1563 11.0001L13.9137 6.75742M18.1563 11.0001L13.9137 15.2427" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-    .flex.items-center.gap-5.py-30px
+    .flex.items-center.gap-5.py-24px.flex-wrap
       h2.h2 切換按鈕
+      a.swtich-button
+        img(src="/img/arrow-icon.svg", alt="", srcset="")
+
+    .flex.items-center.gap-5.py-24px.flex-wrap
+      h2.h2 分頁操作
+      a.paging-arrow
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.25 7L1.75 6.99999M1.75 6.99999L6.475 11.725M1.75 6.99999L6.475 2.27499" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      //- .right 是右邊
+      a.paging-arrow.right
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.25 7L1.75 6.99999M1.75 6.99999L6.475 11.725M1.75 6.99999L6.475 2.27499" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      p.paging-number 1
+    .flex.items-center.gap-5.py-24px.flex-wrap
+      h2.h2 內容分享按鈕（還沒做）
+    .flex.items-center.gap-5.py-24px.flex-wrap
+      h2.h2 內容頁下方功能（還沒做）
+      //  僅有文字沒有下底線.text-link.border-0
+      a.text-link.button-text.border-0 回列表頁
+
+
+
 
 include ../components/footer.pug
 

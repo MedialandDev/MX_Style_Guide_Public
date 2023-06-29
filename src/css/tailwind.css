@@ -2,58 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-  .h1 {
-    @apply text-[34px] lg_text-[52px] text-black font-bold leading-150 lg_leading-120 tracking-[.02em] lg_tracking-[.04em];
+@layer base {
+  a,button,[class*="button"] {
+    @apply cursor-pointer;
   }
-  .h2 {
-    @apply text-[28px] lg_text-[36px] text-black font-bold leading-150 tracking-[.03em];
-  }
-  .h3 {
-    @apply text-[22px] lg_text-[28px] text-black font-bold leading-150 tracking-[.03em];
-  }
-  .h4 {
-    @apply text-[18px] lg_text-[20px] text-black font-normal leading-150 tracking-[.03em];
-  }
-  .h4-bold {
-    @apply text-[18px] lg_text-[20px] text-black font-bold leading-150 tracking-[.03em];
-  }
-  .body {
-    @apply text-base lg_text-lg text-black font-normal leading-150 tracking-[.03em];
-  }
-  .body-bold {
-    @apply text-base lg_text-lg text-black font-bold leading-150 tracking-[.03em];
-  }
-  .link-text {
-    @apply text-base lg_text-lg text-[#00BB73] font-bold leading-7 block tracking-[.05em] underline-offset-4 underline;
-  }
-  .button-text {
-    @apply text-[15px] lg_text-base text-black font-bold leading-100 lg_leading-150 tracking-[.05em];
-  }
-  .caption {
-    @apply text-xs lg_text-[13px] text-black font-normal leading-150 tracking-[.05em];
-  }
-  .footer-text {
-    @apply text-[13px] lg_text-[14px] text-black font-normal leading-150 tracking-normal;
-  }
-  /* //按鈕外觀樣式 */
-  .btn-primary {
-    @apply max-w-[200px] w-full cursor-pointer rounded-[100px] py-15px bg-transparent border-solid border border-pink flex gap-8px justify-center items-center hover_bg-pink transition;
-  }
-  .text-link {
-    @apply flex gap-[10px] items-center text-[15px]  text-pink font-normal leading-180 tracking-[0.45px] hover_opacity-60 transition;
-  }
-  /* 漸層顏色 */
-  .linear-grad-1 {
-    @apply bg-gradient-to-r from-orange to-pink;
-  }
-  .linear-grad-2 {
-    @apply bg-gradient-to-r from-green to-blue;
+  :hover,:active {
+    @apply transition;
   }
 }
-/* 容器大小 */
+@layer components {
+  .h1 {
+    @apply text-[45px] text-gray1 font-bold tracking-[.03em] ;
+  }
+  .h2 {
+    @apply text-[25px] text-gray1 font-bold leading-160 tracking-[.05em];
+  }
+  .h3 {
+    @apply text-[20px] text-gray1 font-bold leading-160 tracking-[.03em];
+  }
+  .body {
+    @apply text-[15px] text-gray1 font-normal leading-180 tracking-[.03em];
+  }
+  .button-text {
+    @apply text-[15px] text-gray1 font-bold leading-160 tracking-[.03em];
+  }
+  /* -----互動元件設定----- */
+  /* 主選單 */
+  .memu-text {
+    @apply text-base text-gray2 leading-150  tracking-[.03em] hover_text-gray1 active_text-gray1 ;
+  }
+  /* TAB按鈕 */
+  .tab-btn {
+    @apply button-text px-20px py-8px text-s4 border rounded-[100px] border-solid bg-transparent hover_bg-s4/20 active_bg-s4 active_text-w1;
+  }
+  /* 按鈕 icon */
+  .button-primary {
+    @apply w-full cursor-pointer rounded-[100px] py-16px px-30px bg-transparent border-solid border flex justify-center items-center border-s3 hover_bg-s3 transition;
+  }
+  .button-primary > .button-text {
+    @apply basis-full text-center
+  }
+  .button-primary > .button-icon {
+    @apply basis-16px
+  }
+  /* CMS/文字連結 */
+  .text-link {
+    @apply text-[15px] leading-180  flex gap-[10px] items-center text-s3 hover_opacity-60 active_opacity-100 transition border-b border-solid border-s3 pb-4px;
+  }
+  /* 切換按鈕 */
+  .swtich-button {
+    @apply p-30px bg-transparent hover_bg-[#F3F3F3] transition rounded-[100px];
+  }
+  /* 左邊 */
+  .paging-arrow {
+    @apply p-[13px] border border-solid rounded-[25px] bg-transparent text-s4 border-s4 hover_bg-s4 hover_text-w1; 
+  }
+  .paging-number {
+    @apply button-text w-[40px] h-[40px] text-center border border-solid rounded-[25px] bg-transparent text-s4 border-transparent hover_bg-s4 hover_text-w1  flex justify-center items-center cursor-pointer; 
+  }
+  /* -----漸層顏色----- */
+  .linear-grad-1 {
+    @apply bg-gradient-to-r from-s1 to-s3;
+  }
+  .linear-grad-2 {
+    @apply bg-gradient-to-r from-s2 to-s4;
+  }
+}
+/* -----容器大小----- */
 .container{
   max-width: 1300px;
 }
 
-/* 全域字體設定 */
+/* -----全域字體設定----- */
+
+
+/* -----按鈕設定----- */
+.paging-arrow.right {
+  transform: rotate(180deg);
+}

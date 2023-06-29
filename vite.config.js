@@ -7,6 +7,7 @@ import VirtualHtml from 'vite-plugin-virtual-html'
 
 const pageList = [
   // index 為預設頁面, 不能移除
+  { path: 'home', title: 'home', pug: 'home', script: 'home' },
   { path: 'index', title: 'demo', pug: 'demo', script: 'main' },
   { path: 'about', title: 'about', pug: 'about', script: 'main' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
