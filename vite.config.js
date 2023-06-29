@@ -6,10 +6,10 @@ import pugPlugin from "vite-plugin-pug"
 import VirtualHtml from 'vite-plugin-virtual-html'
 
 const pageList = [
-  // index 為預設頁面, 不能移除
+  // index 為預設頁面, 不能移除或改名
+  { path: 'index', title: 'demo', pug: 'demo' },
   { path: 'home', title: 'home', pug: 'home', script: 'home' },
-  { path: 'index', title: 'demo', pug: 'demo', script: 'main' },
-  { path: 'about', title: 'about', pug: 'about', script: 'main' },
+  { path: 'about', title: 'about', pug: 'about', script: 'about' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
 ]
 
@@ -22,7 +22,8 @@ pageList.forEach((item) => {
       title: item.title,
       pug: `<pug src="src/pages/${item.pug}.pug"></pug>`,
       // main.js 放 tailwind and other css
-      script: item.script && `<script type="module" src="src/js/${item.script}.js"></script><script type="module" src="src/main.js"></script>`,
+      main: `<script type="module" src="src/main.js"></script>`,
+      script: item.script && `<script type="module" src="src/js/${item.script}.js"></script>`,
     }
   }
 })
