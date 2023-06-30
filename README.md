@@ -29,5 +29,7 @@ path = 路徑, title = 頁面標題, pug = 頁面, script (非必要)
 預設為 index.html 頁面不能移除或改名, 預覽頁面 path 加上 .html
 可用 preview 預覽打包後的畫面
 
+## only for 專案注意事項
+
 ## 待優化
 .env 環境設定

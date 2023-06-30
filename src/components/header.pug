@@ -2,8 +2,8 @@
   .flex
     .linear-grad-1(class="w-1/2 h-0.5")
     .linear-grad-2(class="w-1/2 h-0.5")
-  .container.flex.justify-between.items-center.py-16px.pr-0.md_pr-48px.lg_pr-60px.xl_pr-auto
-    .relative 
+  .container.flex.justify-between.items-center.pr-0.md_pr-48px.lg_pr-60px.xl_pr-auto
+    .relative.py-16px 
       img(src="/img/logo.svg", alt="CMS示範平台", width="244", height="29")
     ul.hidden.md_flex.gap-48px 
       li
@@ -12,10 +12,10 @@
         a(class="memu-text" href="#") 活動訊息
       li
         a(class="memu-text" href="#") 文章單元
-    .hamburger.p-16px.block.md_hidden
+    .menubtn.px-16px.py-30px.block.md_hidden
       i(class="block h-px w-24px bg-gray2 translate-y-1 transition-all duration-500")
       i(class="block h-px w-24px bg-gray2 -translate-y-1 transition-all duration-500")
-      .menu-wrap.fixed.md_hidden.top-60px.left-0.w-full.h-screen.flex.justify-center.items-center.flex-col.overflow-hidden(class="bg-[#F5F5F4] left-full transition-all duration-500")
+      .menu-wrap.fixed.md_hidden.top-60px.left-0.w-full.h-screen.flex.justify-center.items-center.flex-col.overflow-hidden(class="bg-[#F5F5F4] left-full transition-all duration-500 ")
         ul.flex.gap-48px.flex-col.items-center
           li
             a(class="memu-text flex items-center gap-[10px]" href="#") 
@@ -37,6 +37,14 @@
             img(src="/img/facebook-icon.svg", alt="facebook", width="20", height="20")
           a(class="p-[15px] border border-solid border-gray2 rounded-[100px]" href="#")
             img(src="/img/youtube-icon.svg", alt="youtube", width="20", height="20")
-         
+script.
+  const menuBtn = document.querySelector('.menubtn');
+  menuBtn.addEventListener('click', function() {
+    this.classList.toggle('bg-[#F5F5F4]');
+    this.querySelector('i:nth-child(1)').classList.toggle('translate-y-1');
+    this.querySelector('i:nth-child(2)').classList.toggle('-translate-y-1');
+    this.querySelector('.menu-wrap').classList.toggle('left-full');
+  })
+          
       
 

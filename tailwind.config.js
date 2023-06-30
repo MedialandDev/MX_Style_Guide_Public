@@ -23,6 +23,7 @@ const spacing = {
   '16px':'16px',
   '20px':'20px',
   '24px':'24px',
+  '28px':'28px',
   '30px':'30px',
   '32px':'32px',
   '40px':'40px',
@@ -56,6 +57,9 @@ export default {
         '160': '160%',
         '150':'150%',
         '180': '180%',
+      },
+      gridTemplateColumns: {
+        '3-card': 'repeat(3, minmax(0, 410px))',
       }
     },
   },

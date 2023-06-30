@@ -1,3 +1,74 @@
 include ../components/header.pug
+include ../components/list.pug
+- 
+  //- var title = '代理店一覽 - Panasonic 住宅空間美學'
+  //- var description = 'Panasonic 為你帶來最有溫度的美好生活，立即查看各地區的代理商！'
+  //- var bodyClass = "page-agency"
+-
+  const fakeList = [
+  {
+    sort:"消息分類",
+    time:'2022.07.01',
+    title:'數位改變的起點，轉化數位經驗的起點',
+    content:'數位環境與科技行銷快速變化，因此我們更專注於平台規劃與互動體驗，以使用者為設計決策中心，在品牌與用戶間創造美好體驗',
+  },
+  {
+    sort:"消息分類2",
+    time:'2022.07.01',
+    title:'數位改變的起點，轉化數位經驗的起點',
+    content:'內容摘要80字。王它哪。豆娘燈壯收好貫交玉，英戊氣枝流冒錯色：貫立几休童寫國進快片地訴還行、東新怎收玉言采雪讀成草又頭寸夏水相：春急食，找步三何。',
+  },
+    {
+    sort:"消息分類3",
+    time:'2022.07.03',
+    title:'數位改變的起點，轉化數位經驗的起點',
+    content:'內容摘要80字。王它哪。豆娘燈壯收好貫交玉，英戊氣枝流冒錯色：貫立几休童寫國進快片地訴還行、東新怎收玉言采雪讀成草又頭寸夏水相：春急食，找步三何。',
+  },
+  ];
+-
+  const activityList = [
+  {
+    status:1,
+    startTime:'2022.07.01',
+    endTime:'2022.09.28',
+    title:'活動標題活動標題活動標題活動標題活動標題活動標題',
+    content:'備註說明文字欄位（選填）支抱弓者找門千鳥平它火海定帽，加行更而至玩浪寸的貝真車卜入，者完息意開沒回書個助見字隻但後百。',
+  },
+  {
+    status:2,
+    startTime:'2022.07.01',
+    endTime:'2022.09.28',
+    title:'2活動標題活動標題活動標題活動標題活動標題活動標題',
+    content:'備註說明文字欄位（選填）支抱弓者找門千鳥平它火海定帽，加行更而至玩浪寸的貝真車卜入，者完息意開沒回書個助見字隻但後百。',
+  },
+  {
+    status:3,
+    startTime:'2022.07.01',
+    endTime:'2022.09.28',
+    title:'3題活動標題活動標題活動標題活動標題',
+    content:'備註說明文字欄位（選填）支抱弓者找門千鳥平它火海定帽，加行更而至玩浪寸的貝真車卜入，者完息意開沒回書個助見字隻但後百。',
+  },
+  ];
+
+.container.pb-80px
+  section.pb-48px
+    h2.h1.text-s4.my-48px 最新消息
+    .grid.gap-16px
+      - for(i=0; i < fakeList.length ; i++)
+        //- 主題顏色,資料
+        +listCard(fakeList[i])
+  section.pb-48px
+    h2.h1.text-s4.my-48px 最新活動
+    .grid.gap-48px
+      - for(i=0; i < activityList.length ; i++)
+        //- 主題顏色,資料
+        +activityCard(activityList[i])
+  section.pb-48px 
+    h2.h1.text-s4.my-48px 最新文章
+    .grid.justify-between.md_grid-cols-3-card.md_pb-48px(class="gap-48px md_gap-[30px]")
+      - for(i=0; i < fakeList.length ; i++)
+        +articleCard(fakeList[i])
+
+
 
 include ../components/footer.pug

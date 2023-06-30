@@ -32,9 +32,17 @@
     @apply text-base text-gray2 leading-150  tracking-[.03em] hover_text-gray1 active_text-gray1 ;
   }
   /* TAB按鈕 */
-  .tab-btn {
-    @apply button-text px-20px py-8px text-s4 border rounded-[100px] border-solid bg-transparent hover_bg-s4/20 active_bg-s4 active_text-w1;
+  .tab-button {
+    @apply button-text px-20px py-8px text-s4 border rounded-[100px] border-s4 border-solid bg-transparent hover_bg-s4/20 active_bg-s4 active_text-w1;
   }
+  /* tage 按鈕 */
+  .tage-button {
+    @apply text-[13px] font-bold px-[15px] py-[10px] leading-150 border rounded-[100px] text-s2 border-s2 border-solid bg-transparent  ;
+  }
+  /* 活動狀態按鈕 */
+    .status-style {
+      @apply after_absolute after_top-0 after_text-[13px] after_text-w1 after_px-[15px] after_py-[10px] after_rounded-r-[15px]
+    }
   /* 按鈕 icon */
   .button-primary {
     @apply w-full cursor-pointer rounded-[100px] py-16px px-30px bg-transparent border-solid border flex justify-center items-center border-s3 hover_bg-s3 transition;
@@ -51,7 +59,7 @@
   }
   /* 切換按鈕 */
   .swtich-button {
-    @apply p-30px bg-transparent hover_bg-[#F3F3F3] transition rounded-[100px];
+    @apply p-30px bg-transparent  hover_bg-[#F3F3F3] transition rounded-[100px];
   }
   /* 左邊 */
   .paging-arrow {

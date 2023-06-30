@@ -1,0 +1,38 @@
+mixin listCard(item)
+  a.flex.items-center.flex-col.md_flex-row.gap-48px.justify-between.border-b.border-solid.group.transition-all.duration-500(href="#" class="border-[#E0E5F1]")
+    .flex.flex-col.gap-16px.mt-20px.mb-28px
+      .flex.items-center.gap-20px
+        .tage-button(class="text-s2 border-s2")=item.sort
+        .text-gray3(class="text-[13px] leading-150")=item.time
+      h3.h3(class="group-hover_text-s2 transition-all duration-500")=item.title
+      p.body.text-gray1=item.content
+    .hidden.md_block.swtich-button(class="border-[#9FA0A033] border border-solid w-fit h-fit p-20px group-hover_bg-[#F3F3F3] group-hover_border-transparent")
+      img(src="/img/arrow-icon.svg", alt="switch-button")
+  
+mixin activityCard(item)
+    a.flex.items-center.flex-col.md_flex-row.md_gap-32px.transition-all.duration-500(href="#" class="group")
+      if item.status === 1
+        .relative.md_shrink-0.overflow-hidden(class="after_content-['進行中'] after_bg-s2 status-style")
+          img.w-full(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover_scale-110 transition-all duration-500 md_max-w-[380px] md_h-[214px]")
+      else if item.status === 2
+        .relative.md_shrink-0.overflow-hidden(class="after_content-['已結束'] after_bg-gray3 status-style")
+          img.w-full(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover_scale-110 transition-all duration-500 md_max-w-[380px] md_h-[214px]") 
+      else
+        .relative.md_shrink-0.overflow-hidden(class="after_content-['即將舉行'] after_bg-s3 status-style")
+          img.w-full(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover_scale-110 transition-all duration-500 md_max-w-[380px] md_h-[214px]") 
+      .py-20px.border-b.border-solid.flex.flex-col.md_h-full(class="border-[#E0E5F1]")
+        .inline.text-xl.leading-150(class="text-s2")=item.startTime
+          span(class="text-xl leading-150 text-s2 px-[10px]") ~
+          |!{item.endTime}
+        h3.h3.py-16px(class="group-hover_text-s2 transition-all duration-500" )=item.title
+        p.body.text-gray2=item.content 
+
+mixin articleCard(item)
+  a.grid.group(href="#")
+    .pt-24px.pb-20px 
+      .flex.items-center.justify-between.gap-16px
+        .text-gray3(class="text-[13px] leading-150")=item.time
+        .tage-button(class=" text-gray3 border-gray3")=item.sort
+      h3.h3.mt-16px(class="group-hover_text-s2 transition-all duration-500")=item.title
+    .w-full.overflow-hidden
+      img.w-full(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="410", height="233", class="group-hover_scale-110 transition-all duration-500 md_max-w-[410px]")
