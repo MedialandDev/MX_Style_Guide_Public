@@ -1,5 +1,5 @@
-mixin listCard(item)
-  a.flex.items-center.flex-col.md_flex-row.gap-48px.justify-between.border-b.border-solid.group.transition-all.duration-500(href="#" class="border-[#E0E5F1]")
+mixin listCard(item,dataValue)
+  a.listcard.flex.items-center.flex-col.md_flex-row.gap-48px.justify-between.border-b.border-solid.group.transition-all.duration-500(href="#" class="border-[#E0E5F1]",data-value=dataValue)
     .flex.flex-col.gap-16px.mt-20px.mb-28px
       .flex.items-center.gap-20px
         .tage-button(class="text-s2 border-s2")=item.sort

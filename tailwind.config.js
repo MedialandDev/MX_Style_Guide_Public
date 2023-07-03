@@ -20,6 +20,7 @@ const screens = {
 const spacing = {
   '4px':'4px',
   '8px':'8px',
+  '10px':'10px',
   '16px':'16px',
   '20px':'20px',
   '24px':'24px',
@@ -29,6 +30,7 @@ const spacing = {
   '40px':'40px',
   '48px':'48px',
   '60px':'60px',
+  '64px':'64px',
   '80px':'80px',
   '100px':'100px',
   '120px':'120px',
@@ -60,7 +62,26 @@ export default {
       },
       gridTemplateColumns: {
         '3-card': 'repeat(3, minmax(0, 410px))',
-      }
+      },
+      keyframes: {
+        wiggle: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        },
+        transLeft: {
+          '0%, 100%':{ transform: 'translateX(0px)' },
+          '50%': { transform: 'translateX(-5px)' }
+        },
+        transRight: {
+          '0%, 100%':{ transform: 'translateX(0px)' },
+          '50%': { transform: 'translateX(5px)' }
+        },
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
+        'trans-left': 'transLeft .6s ease infinite',
+        'trans-right': 'transRight .6s ease infinite',
+      },
     },
   },
   plugins: [],

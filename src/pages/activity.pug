@@ -1,0 +1,37 @@
+include ../components/header.pug
+include ../components/list.pug  
+include ../components/pagingSelector.pug 
+-
+  const activityList = [
+  {
+    status:1,
+    startTime:'2022.07.01',
+    endTime:'2022.09.28',
+    title:'活動標題活動標題活動標題活動標題活動標題活動標題',
+    content:'備註說明文字欄位（選填）支抱弓者找門千鳥平它火海定帽，加行更而至玩浪寸的貝真車卜入，者完息意開沒回書個助見字隻但後百。',
+  },
+  {
+    status:2,
+    startTime:'2022.07.01',
+    endTime:'2022.09.28',
+    title:'2活動標題活動標題活動標題活動標題活動標題活動標題',
+    content:'備註說明文字欄位（選填）支抱弓者找門千鳥平它火海定帽，加行更而至玩浪寸的貝真車卜入，者完息意開沒回書個助見字隻但後百。',
+  },
+  {
+    status:3,
+    startTime:'2022.07.01',
+    endTime:'2022.09.28',
+    title:'3題活動標題活動標題活動標題活動標題',
+    content:'備註說明文字欄位（選填）支抱弓者找門千鳥平它火海定帽，加行更而至玩浪寸的貝真車卜入，者完息意開沒回書個助見字隻但後百。',
+  },
+  ];
+.container.pb-80px.mt-64px
+  section.py-48px
+    h2.h1.text-s4.my-48px 活動訊息
+  section.pb-80px
+    .grid.gap-32px.md_gap-48px
+      - for(i=0; i < activityList.length ; i++)
+        //- 主題顏色,資料
+        +activityCard(activityList[i])
+  .mt-48px
+    +pagingSelector()

@@ -1,0 +1,82 @@
+include ../components/header.pug
+.container.pb-80px.mt-64px
+  section 
+    p.flex.items-center.text-xs.text-gray3.pt-8px HOME
+      span(class="h-px bg-s2 w-2.5 block mx-[7px]")
+      | 最新消息
+    h1.h1.py-48px 數位改變的起點，轉化數位經驗的起點
+    .flex.justify-between.pb-20px
+      .flex.items-center.gap-10px
+        .tage-button(class="text-s2 border-s2") 消息分類
+        .text-gray3(class="text-[13px] leading-150") 2022.07.01
+      .flex 
+        a(href="#" )
+          img.share-button(src="/img/line-g-icon.svg" , alt="", class="", width=40) 
+        a(href="#")
+          img.share-button(src="/img/facebook-g-icon.svg" , alt="", class="", width=40) 
+        a(href="#")
+          img.share-button(src="/img/link-g-icon.svg" , alt="", class="", width=40) 
+        a(href="#")
+          img.share-button(src="/img/print-g-icon.svg" , alt="", class="", width=40)
+    .linear-grad-2(class="w-full h-0.5")
+  section.pt-48px.pb-80px
+    .flex.items-center.pb-20px(class="gap-[15px]")
+      .linear-grad-1(class="w-2 h-4 rounded-[30px]")
+      h2.h2 米蘭傳播集團前進校園！受邀參加政治大學舉辦的校園就業博覽會
+    p.body.text-gray2.pb-48px 數位環境與科技行銷快速變化，因此我們更專注於平台規劃與互動體驗，以使用者為設計決策中心，在品牌與用戶間創造美好體驗；將數據結合科技創新，全方位掌握趨勢脈絡，提供你最適切並領先業界的解決方案。
+    .flex.items-center.pb-20px(class="gap-[15px]")
+      .linear-grad-1(class="w-2 h-4 rounded-[30px]")
+      h2.h2 開啟數位想像的交點
+    p.body.text-gray2.pb-48px 虛實相互交疊，數據混搭應用，體驗持續更迭...準備好和我們來場數位衝浪了嗎？
+    .flex.items-center.pb-20px(class="gap-[15px]")
+      .linear-grad-1(class="w-2 h-4 rounded-[30px]")
+      h2.h2 虛實互動
+    p.body.text-gray2.pb-48px 從實體到虛擬，我們重視使用者的每一次互動經驗，理性思考，感性呈現，結合科技應用，創造令人難忘的美好體驗。
+    .flex.items-center.pb-20px(class="gap-[15px]")
+      .linear-grad-1(class="w-2 h-4 rounded-[30px]")
+      h2.h2 體驗設計
+    p.body.text-gray2.pb-48px 從使用者出發，以情境體驗為設計核心，從前期規劃、落地執行到優化更迭，透過團隊各角色的緊密整合，為每個專案提供最適切的專屬體驗。
+    .flex.items-center.pb-20px(class="gap-[15px]")
+      .linear-grad-1(class="w-2 h-4 rounded-[30px]")
+      h2.h2 技術整合
+    p.body.text-gray2.pb-48px 程式應用無所不在，互動裝置、網站、系統、社群、電商、顧客管理等，我們擁有堅實的技術團隊，結合跨領域產業經驗，為企業的數據戰略提供最佳方案。
+    //- 按鈕
+    .button-primary.group.mx-auto.mb-48px
+      .button-text.text-s3.group-hover_text-w1 MX 創意思境 官方網站
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon text-s3 group-hover_text-w1">
+        <path d="M1.50024 7.99958L14.9242 7.99967M14.9242 7.99967L9.35574 2.43121M14.9242 7.99967L9.35573 13.5681" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    //- 單圖
+    figure.pb-48px 
+      img(src="https://fakeimg.pl/1300x732/?text=16:9", alt="", srcset="")
+      figcaption.body.text-gray2.text-center.py-16px 圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片
+    //- 多圖
+    //- youtube 影片
+    .pb-48px 
+      .relative.w-full.overflow-hidden
+        video(poster="" controls, muted, class="w-full h-full object-cover top-0 left-0 aspect-video")
+          source(src="#")
+      p.body.text-gray2.text-center.py-16px 圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片
+    //- 切換頁面
+    .mt-48px
+      .flex.gap-20px.py-20px.items-center.justify-between.flex-row.flex-wrap.md_flex-nowrap(class="border-t border-solid border-[#E0E5F1]")
+        a.flex.flex-col.relative.group(class="order-2 md_order-none basis-5/12 md_pl-[35px]")
+          .flex.pb-10px.gap-4px
+            .md_absolute.left-0.top-5
+              img(src="/img/arrow-p-icon-2.svg", alt="", srcset="", class="group-hover_animate-trans-left ")
+            p.button-text.text-s3.text-left 上一則
+          p(class="text-[13px] leading-150 tracking-[.03em] text-[#4F5976]") 主標題主標題主標題主標題主標題建議字數（最多25字）
+        a.buton-text.text-base.font-bold.text-s3.leading-150.text-center(href="#" class="basis-full md_basis-1/5") 回列表頁
+        a.flex.flex-col.relative.group.items-end(class="order-3 md_order-none basis-5/12 md_pr-[35px]")
+          .flex.pb-10px.gap-4px
+            p.button-text.text-s3 下一則
+            .rotate-180.md_absolute.right-0.top-5
+              img(src="/img/arrow-p-icon-2.svg", alt="", srcset="", class="group-hover_animate-trans-left  ")
+          p(class="text-[13px] leading-150 tracking-[.03em] text-[#4F5976]") 主標題主標題主標題主標題主標題建議字數（最多25字）
+
+
+
+
+
+
+

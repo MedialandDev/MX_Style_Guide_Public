@@ -10,6 +10,9 @@ const pageList = [
   { path: 'index', title: 'demo', pug: 'demo' },
   { path: 'home', title: 'home', pug: 'home', script: 'home' },
   { path: 'about', title: 'about', pug: 'about', script: 'about' },
+  { path: 'news', title: 'news', pug: 'news', script: 'news' },
+  { path: 'newsContent', title: 'newsContent', pug: 'newsContent', script: '' },
+  { path: 'activity', title: 'activity', pug: 'activity', script: '' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
 ]
 
