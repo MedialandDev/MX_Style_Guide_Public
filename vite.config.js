@@ -11,8 +11,9 @@ const pageList = [
   { path: 'home', title: 'home', pug: 'home', script: 'home' },
   { path: 'about', title: 'about', pug: 'about', script: 'about' },
   { path: 'news', title: 'news', pug: 'news', script: 'news' },
-  { path: 'newsContent', title: 'newsContent', pug: 'newsContent', script: '' },
+  { path: 'news-content', title: 'news-content', pug: 'news-content', script: '' },
   { path: 'activity', title: 'activity', pug: 'activity', script: '' },
+  { path: 'activity-content', title: 'activity-content', pug: 'activity-content', script: '' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
 ]
 

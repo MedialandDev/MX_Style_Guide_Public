@@ -63,7 +63,7 @@
   }
   /* 切換按鈕 */
   .swtich-button {
-    @apply p-30px bg-transparent  hover:bg-[#F3F3F3] transition rounded-[100px];
+    @apply p-30px bg-white  hover:bg-[#F3F3F3] transition rounded-[100px];
   }
   /* 分頁 -- 預設左邊 */
   .paging-arrow {

@@ -1,23 +1,24 @@
 const tabList = document.querySelectorAll('.tab');
 tabList.forEach((item) => {
   item.addEventListener('click', (e) => {
-    const currentValue = e.target.dataset.value;
-    document.querySelectorAll('.list-card').forEach((ele) => {
-      ele.classList.add('hidden');
+    document.querySelectorAll('.tab').forEach((el) => {
+    el.classList.remove('is-active');
+    });  
+
+  item.classList.add('is-active');
+  const currentValue = e.target.dataset.value;
+  if(currentValue === 'all') {
+    document.querySelectorAll('.list-card').forEach((el) => {
+      el.classList.remove('hidden');
     });
-    document.querySelectorAll('.tab').forEach((ele) => {
-      ele.classList.remove('is-active');
-    });
-    if(currentValue === 'all') {
-      document.querySelectorAll('.list-card').forEach((ele) => {
-        ele.classList.remove('hidden');
-      });
-    }
-    else {
-      document.querySelectorAll(`.list-card[data-value="${currentValue}"`).forEach((ele) => {
-        ele.classList.remove('hidden');
-      });
-    }
-    item.classList.add('is-active');
+    return
+  }
+  //Note 待修
+  document.querySelectorAll('.list-card').forEach((el) => {
+    el.classList.add('hidden');
   });
+  document.querySelectorAll(`.list-card[data-value="${currentValue}"]`).forEach((el) => {
+    el.classList.toggle('hidden');
+  });
+});
 });
