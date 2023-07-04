@@ -1,5 +1,5 @@
 include ../components/header.pug
-include ../components/list.pug  
+include ../components/list/activityCard.pug  
 include ../components/pagingSelector.pug 
 -
   const activityList = [
@@ -25,13 +25,13 @@ include ../components/pagingSelector.pug
     content:'備註說明文字欄位（選填）支抱弓者找門千鳥平它火海定帽，加行更而至玩浪寸的貝真車卜入，者完息意開沒回書個助見字隻但後百。',
   },
   ];
-.container.pb-80px.mt-64px
-  section.py-48px
-    h2.h1.text-s4.my-48px 活動訊息
-  section.pb-80px
-    .grid.gap-32px.md_gap-48px
+div(class="container pb-80px mt-64px")
+  section(class="py-48px")
+    h2(class="h1 text-s4 my-48px") 活動訊息
+  section(class="pb-80px")
+    div(class="grid gap-32px md:gap-48px")
       - for(i=0; i < activityList.length ; i++)
         //- 主題顏色,資料
         +activityCard(activityList[i])
-  .mt-48px
+  div(class="mt-48px")
     +pagingSelector()

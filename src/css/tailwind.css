@@ -28,12 +28,12 @@
   }
   /* -----互動元件設定----- */
   /* 主選單 */
-  .memu-text {
-    @apply text-base text-gray2 leading-150  tracking-[.03em] hover_text-gray1 active_text-gray1 ;
+  .menu-text {
+    @apply text-base text-gray2 leading-150  tracking-[.03em] hover:text-gray1 active:text-gray1;
   }
   /* TAB按鈕 */
   .tab-button {
-    @apply button-text px-20px py-8px text-s4 border rounded-[100px] border-s4 border-solid bg-transparent hover_bg-s4/20 active_bg-s4 active_text-w1;
+    @apply button-text px-20px py-8px text-s4 border rounded-[100px] border-s4 border-solid bg-transparent hover:bg-s4/20 active:bg-s4 active:text-w1;
   }
   /* TAB按鈕 --- 選取狀態 */
   .tab-button.is-active{
@@ -41,41 +41,41 @@
   }
   /* tage 按鈕 */
   .tage-button {
-    @apply text-[13px] font-bold px-[15px] py-[10px] leading-150 border rounded-[100px] text-s2 border-s2 border-solid bg-transparent  ;
+    @apply text-[13px] font-bold px-[15px] py-[10px] leading-150 border rounded-[100px] text-s2 border-s2 border-solid bg-transparent;
   }
   /* 活動狀態按鈕 */
   .status-style {
-    @apply after_absolute after_top-0 after_text-[13px] after_text-w1 after_px-[15px] after_py-[10px] after_rounded-r-[15px]
+    @apply after:absolute after:top-0 after:text-[13px] after:text-w1 after:px-[15px] after:py-[10px] after:rounded-r-[15px]
   }
   /* 按鈕 icon */
   .button-primary {
-    @apply w-full xl_max-w-[900px] md_max-w-[528px] cursor-pointer rounded-[100px] py-16px px-30px bg-transparent border-solid border flex justify-center items-center border-s3 hover_bg-s3 transition;
+    @apply w-full xl:max-w-[900px] md:max-w-[528px] cursor-pointer rounded-[100px] py-16px px-30px bg-transparent border-solid border flex justify-center items-center border-s3 hover:bg-s3 transition;
   }
   .button-primary > .button-text {
-    @apply basis-full text-center
+    @apply basis-full text-center;
   }
   .button-primary > .button-icon {
-    @apply basis-16px
+    @apply basis-16px;
   }
   /* CMS/文字連結 */
   .text-link {
-    @apply text-[15px] leading-180  flex gap-[10px] items-center text-s3 hover_opacity-60 active_opacity-100 transition border-b border-solid border-s3 pb-4px;
+    @apply text-[15px] leading-180  flex gap-[10px] items-center text-s3 hover:opacity-60 active:opacity-100 transition border-b border-solid border-s3 pb-4px;
   }
   /* 切換按鈕 */
   .swtich-button {
-    @apply p-30px bg-transparent  hover_bg-[#F3F3F3] transition rounded-[100px];
+    @apply p-30px bg-transparent  hover:bg-[#F3F3F3] transition rounded-[100px];
   }
   /* 分頁 -- 預設左邊 */
   .paging-arrow {
-    @apply p-[13px] border border-solid rounded-[25px] bg-transparent text-s4 border-s4 hover_bg-s4 hover_text-w1 cursor-pointer; 
+    @apply p-[13px] border border-solid rounded-[25px] bg-transparent text-s4 border-s4 hover:bg-s4 hover:text-w1 cursor-pointer; 
   }
   /* 分頁 -- 數字 */
   .paging-number {
-    @apply button-text w-[40px] h-[40px] text-center border border-solid rounded-[25px] bg-transparent text-s4 border-transparent hover_bg-s4 hover_text-w1  flex justify-center items-center cursor-pointer; 
+    @apply button-text w-[40px] h-[40px] text-center border border-solid rounded-[25px] bg-transparent text-s4 border-transparent hover:bg-s4 hover:text-w1  flex justify-center items-center cursor-pointer; 
   }
   /* 內容分享按鈕 */
   .share-button {
-    @apply group-hover_bg-[#F3F3F3] hover_bg-[#F3F3F3] p-10px border rounded-[25px] border-gray3 transition-all duration-500 ;
+    @apply group-hover:bg-[#F3F3F3] hover:bg-[#F3F3F3] p-10px border rounded-[25px] border-gray3 transition-all duration-500 ;
   }
   /* -----漸層顏色----- */
   .linear-grad-1 {
@@ -90,6 +90,10 @@
   }
   .button-slide-down:hover {
     @apply shadow-[inset_0_100px_0_0] ease-linear duration-500;
+  }
+  /* -----常見設定----- */
+  .flex-center {
+    @apply  flex justify-center items-center;
   }
 }
 /* -----容器大小----- */

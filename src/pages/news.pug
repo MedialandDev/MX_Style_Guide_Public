@@ -1,5 +1,5 @@
 include ../components/header.pug
-include ../components/list.pug 
+include ../components/list/newsCard.pug  
 include ../components/pagingSelector.pug 
 -
   const tabList = [
@@ -40,20 +40,20 @@ include ../components/pagingSelector.pug
     },
   ];
 //- .bg-blue
-.container.pb-80px.mt-64px
+div(class="container pb-80px mt-64px")
   //- img.md_block.absolute(class="top-[60px] w-[1260px] max-h-[500px] object-contain -translate-x-2/4 left-[50%]" src="/img/bg-blue-pc.png", alt="" )
   //- img.md_hidden.block.absolute(src="/img/bg-blue-mob.png", alt="", class="w-[1000px] top-[60px] ")
-  section.py-48px
-    h1.h1.text-s4 最新消息
-  section.pb-80px
-    .pb-48px.flex.gap-8px.flex-wrap
+  section(class="py-48px")
+    h1(class="h1 text-s4") 最新消息
+  section(class="pb-80px")
+    div(class="pb-48px flex gap-8px flex-wrap")
       each item in tabList
-        .tab.tab-button(data-value=item.val)=item.text
-    .grid.gap-24px
+        div(data-value=item.val class="tab tab-button")=item.text
+    div(class="grid gap-24px")
       - for(i=0; i < fakeList.length ; i++)
         //- 主題顏色,資料
-        +listCard(fakeList[i],fakeList[i].dataValue)
-    .mt-48px 
+        +newsCard(fakeList[i],fakeList[i].dataValue)
+    div(class="mt-48px")
         +pagingSelector()
         
 

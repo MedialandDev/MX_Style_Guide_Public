@@ -1,5 +1,7 @@
 include ../components/header.pug
-include ../components/list.pug  
+include ../components/list/activityCard.pug  
+include ../components/list/articleCard.pug  
+include ../components/list/newsCard.pug  
 - 
   //- var title = '代理店一覽 - Panasonic 住宅空間美學'
   //- var description = 'Panasonic 為你帶來最有溫度的美好生活，立即查看各地區的代理商！'
@@ -50,22 +52,22 @@ include ../components/list.pug
   },
   ];
 
-.container.pb-80px.mt-64px
-  section.pb-48px
-    h2.h1.text-s4.my-48px 最新消息
-    .grid.gap-16px
+div(class="container pb-80px mt-64px")
+  section(class="pb-48px")
+    h2(class="h1 text-s4 my-48px") 最新消息
+    div(class="grid gap-16px")
       - for(i=0; i < fakeList.length ; i++)
         //- 主題顏色,資料
-        +listCard(fakeList[i])
-  section.pb-48px
-    h2.h1.text-s4.my-48px 最新活動
-    .grid.gap-48px
+        +newsCard(fakeList[i])
+  section(class="pb-48px")
+    h2(class="h1 text-s4 my-48px") 最新活動
+    div(class="grid gap-48px")
       - for(i=0; i < activityList.length ; i++)
         //- 主題顏色,資料
         +activityCard(activityList[i])
-  section.pb-48px 
-    h2.h1.text-s4.my-48px 最新文章
-    .grid.justify-between.md_grid-cols-3-card.md_pb-48px(class="gap-48px md_gap-[30px]")
+  section(class="pb-48px")
+    h2(class="h1 text-s4 my-48px") 最新文章
+    div(class="grid justify-between md:grid-cols-3-card md:pb-48px gap-48px md:gap-[30px]")
       - for(i=0; i < fakeList.length ; i++)
         +articleCard(fakeList[i])
 

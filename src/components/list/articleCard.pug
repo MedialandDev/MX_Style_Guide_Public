@@ -1,0 +1,9 @@
+mixin articleCard(item)
+  a(href="#" class="grid group")
+    div(class="pt-24px pb-20px")
+      div(class="flex items-center justify-between gap-16px")
+        div(class="text-[13px] leading-150 text-gray3")=item.time
+        div(class="text-gray3 border-gray3 tage-button")=item.sort
+      h3(class="group-hover:text-s2 transition-all duration-500 h3 mt-16px")=item.title
+    div(class="w-full overflow-hidden")
+      img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="410", height="233", class="group-hover:scale-110 transition-all duration-500 md:max-w-[410px] w-full")

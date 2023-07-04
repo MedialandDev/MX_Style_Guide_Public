@@ -85,6 +85,5 @@ export default {
     },
   },
   plugins: [],
-  separator: '_',  //改: 到 _ 因為pug 不支援 :
 }
 

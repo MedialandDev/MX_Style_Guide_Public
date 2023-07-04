@@ -1,45 +1,45 @@
-.bg-w1.fixed.top-0.w-screen.z-50
-  .flex
-    .linear-grad-1(class="w-1/2 h-0.5")
-    .linear-grad-2(class="w-1/2 h-0.5")
-  .container.flex.justify-between.items-center.pr-0.md_pr-48px.lg_pr-60px.xl_pr-auto
-    a.relative.py-16px(href="home.html")
+div(class="bg-w1 fixed top-0 w-screen z-50")
+  div(class="flex")
+    div(class="linear-grad-1 w-1/2 h-0.5")
+    div(class="linear-grad-2 w-1/2 h-0.5")
+  div(class="container flex justify-between items-center pr-0 md:pr-48px lg:pr-60px xl:pr-auto")
+    a(href="home.html" class="relative py-16px")
       img(src="/img/logo.svg", alt="CMS示範平台", width="244", height="29")
-    ul.hidden.md_flex.gap-48px 
+    ul(class=" hidden md:flex gap-48px")
       li
-        a(class="memu-text" href="news.html") 最新消息
+        a(class="menu-text" href="news.html") 最新消息
       li
-        a(class="memu-text" href="activity.html") 活動訊息
+        a(class="menu-text" href="activity.html") 活動訊息
       li
-        a(class="memu-text" href="post.html") 文章單元
-    .menubtn.px-16px.py-30px.block.md_hidden
+        a(class="menu-text" href="post.html") 文章單元
+    div(class="menu-btn px-16px py-30px block md:hidden")
       i(class="block h-px w-24px bg-gray2 translate-y-1 transition-all duration-500")
       i(class="block h-px w-24px bg-gray2 -translate-y-1 transition-all duration-500")
-      .menu-wrap.fixed.md_hidden.top-60px.left-0.w-full.h-screen.flex.justify-center.items-center.flex-col.overflow-hidden(class="bg-[#F5F5F4] left-full transition-all duration-500 ")
-        ul.flex.gap-48px.flex-col.items-center
+      div(class="menu-wrap fixed md:hidden top-60px left-0 w-full h-screen flex-center flex-col overflow-hidden bg-[#F5F5F4] transition-all duration-500")
+        ul(class="flex gap-48px flex-col items-center")
           li
-            a(class="memu-text flex items-center gap-[10px]" href="news.html") 
+            a(class="menu-text flex items-center gap-[10px]" href="news.html") 
               span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 01
               span(class="linear-grad-1 h-px w-40px inline-block")
               |最新消息
           li
-            a(class="memu-text flex items-center gap-[10px]" href="activity.html") 
+            a(class="menu-text flex items-center gap-[10px]" href="activity.html") 
               span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 01
               span(class="linear-grad-1 h-px w-40px inline-block")
               |活動訊息
           li
-            a(class="memu-text flex items-center gap-[10px]" href="post.html") 
+            a(class="menu-text flex items-center gap-[10px]" href="post.html") 
               span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 01
               span(class="linear-grad-1 h-px w-40px inline-block")
               |文章單元
-        .flex.justify-center.items-center.mt-80px.gap-32px
+        div(class="flex-center mt-80px gap-32px")
           a(class="p-[15px] border border-solid border-gray2 rounded-[100px]" href="#")
             img(src="/img/facebook-icon.svg", alt="facebook", width="20", height="20")
           a(class="p-[15px] border border-solid border-gray2 rounded-[100px]" href="#")
             img(src="/img/youtube-icon.svg", alt="youtube", width="20", height="20")
 script.
-  const menuBtn = document.querySelector('.menubtn');
-  menuBtn.addEventListener('click', function() {
+  const menu = document.querySelector('.menu-btn');
+  menu.addEventListener('click', function() {
     this.classList.toggle('bg-[#F5F5F4]');
     this.querySelector('i:nth-child(1)').classList.toggle('translate-y-1');
     this.querySelector('i:nth-child(2)').classList.toggle('-translate-y-1');

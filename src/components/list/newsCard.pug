@@ -1,0 +1,11 @@
+mixin newsCard(item,dataValue)
+  a(class="list-card flex items-center flex-col md:flex-row gap-48px justify-between border-b border-solid group transition-all duration-500 border-[#E0E5F1]" href="#" ,data-value=dataValue)
+    div(class="flex flex-col gap-16px mt-20px mb-28px")
+      div(class="flex items-center gap-20px")
+        div(class="text-s2 border-s2 tage-button")=item.sort
+        div(class="text-[13px] leading-150 text-gray3")=item.time
+      h3(class="h3 group-hover:text-s2 transition-all duration-500")=item.title
+      p(class="body text-gray1")=item.content
+    div(class="hidden md:block swtich-button border-[#9FA0A033] border border-solid w-fit h-fit p-20px group-hover:bg-[#F3F3F3] group-hover:border-transparent")
+      img(src="/img/arrow-icon.svg", alt="switch-button")
+  
