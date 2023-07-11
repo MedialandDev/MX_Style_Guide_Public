@@ -1,29 +1,29 @@
 include ../components/header.pug
-include ../components/list/newsCard.pug  
-include ../components/pageSelector.pug 
+include ../components/list/articleCard.pug 
+include ../components/pageSelector.pug  
 include ../data/fakeData.pug
 
 div(class="container pb-80px mt-64px")
-  //- bg-blue背景
-  img(class="bg-bubble hidden md:block" src="img/bg-blue-pc.png", alt="")
-  img(class="bg-bubble md:hidden" src="img/bg-blue-mob.png", alt="")
+  img(class="bg-bubble hidden md:block" src="img/bg-orange-pc.png", alt="" )
+  img(class="bg-bubble md:hidden" src="img/bg-orange-mob.png", alt="")
   section(class="py-48px")
-    h1(class="h1 text-s4") 最新消息
+    h1(class="h1 text-s4") 文章單元
   section
     div(class="mb-48px mt-16px flex gap-8px flex-wrap")
-        // --- Tab 預設版本 tab切換js 請參考下方 ---
-        div(data-value="all" class="tab tab-button") 全部消息
-        div(data-value="discount" class="tab tab-button") 優惠訊息
+        // --- Tab 灰色版本 ---
+        div(data-value="all" class="tab tab-button gray1") 全部消息
+        div(data-value="discount" class="tab tab-button gray1") 優惠訊息
         // Note 選取狀態是加 is-active
-        div(data-value="member" class="tab tab-button is-active") 會員限定selected
-        div(data-value="brand" class="tab tab-button") 品牌新知
-        div(data-value="post" class="tab tab-button") 企業公告
-    div(class="grid gap-24px")
-      - for(i=0; i < fakeList.length ; i++)
-        +newsCard(fakeList[i],fakeList[i].dataValue)
+        div(data-value="member" class="tab tab-button is-active gray1") 會員限定selected
+        div(data-value="brand" class="tab tab-button gray1") 品牌新知
+        div(data-value="post" class="tab tab-button gray1") 企業公告
+    section
+      div(class="grid justify-between md:grid-cols-3-card gap-32px md:gap-[30px] xl:gap-x-[unset] gap-y-48px")
+        - for(i=0; i < articleList.length ; i++)
+          +articleCard(articleList[i])
     div(class="mt-48px")
         +pageSelector()
-        
+
 include ../components/footer.pug
 // tab切換js 
 script.

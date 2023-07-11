@@ -1,6 +1,6 @@
 include ../components/header.pug
 include ../components/list/activityCard.pug  
-include ../components/list/articleCard.pug  
+include ../components/list/articleCard.pug 
 include ../components/list/newsCard.pug  
 include ../data/fakeData.pug
 
@@ -8,7 +8,7 @@ link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundl
 script(src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js")
 
 div(class="pb-48px mt-64px")
-  div(class="swiper swiper-banner mb-30px")
+  div(class="swiper swiper-banner")
     div(class="swiper-wrapper")
       div(class="swiper-slide")
         img(src="https://fakeimg.pl/3200x1800/?text=16:9", alt="", srcset="")
@@ -16,32 +16,28 @@ div(class="pb-48px mt-64px")
         img(src="https://fakeimg.pl/3200x1800/?text=16:9", alt="", srcset="")
       div(class="swiper-slide")
         img(src="https://fakeimg.pl/3200x1800/?text=16:9", alt="", srcset="")
-
-    div(class="swiper-button-next swtich-button hidden md:block")
-      img(src="/img/arrow-icon.svg", alt="")
-    div(class="swiper-button-prev swtich-button hidden md:block")
-      img(src="/img/arrow-icon.svg", alt="", class="rotate-180")
-    div(class="container banner-pagination")
-      div(class="swiper-pagination flex-center gap-20px")
-
-div(class="container pb-80px mt-64px")
+    div(class="swiper-button-next")
+      img(src="img/arrow-icon.svg", alt="")
+    div(class="swiper-button-prev")
+      img(src="img/arrow-icon.svg", alt="", class="rotate-180")
+    div(class="container")
+      div(class="swiper-pagination")
+div(class="container pb-80px mt-48px")
   section(class="pb-48px")
     h2(class="h1 text-s4 my-48px") 最新消息
     div(class="grid gap-16px")
       - for(i=0; i < fakeList.length ; i++)
-        //- 主題顏色,資料
         +newsCard(fakeList[i])
   section(class="pb-48px")
     h2(class="h1 text-s4 my-48px") 最新活動
     div(class="grid gap-48px")
       - for(i=0; i < activityList.length ; i++)
-        //- 主題顏色,資料
         +activityCard(activityList[i])
   section(class="pb-48px")
     h2(class="h1 text-s4 my-48px") 最新文章
-    div(class="grid justify-between md:grid-cols-3-card md:pb-48px gap-48px md:gap-[30px]")
-      - for(i=0; i < fakeList.length ; i++)
-        +articleCard(fakeList[i])
+    div(class="grid justify-between md:grid-cols-3-card md:pb-48px gap-48px md:gap-[30px] xl:gap-[unset]")
+      - for(i=0; i < articleList.length - 3 ; i++)
+        +articleCard(articleList[i])
 
 
 

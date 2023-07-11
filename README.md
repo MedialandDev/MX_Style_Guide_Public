@@ -30,6 +30,7 @@ path = 路徑, title = 頁面標題, pug = 頁面, script (非必要)
 可用 preview 預覽打包後的畫面
 
 ## only for 專案注意事項
+- 目前如果要用background-image，先不要用tailwind
 
 ## 待優化
 .env 環境設定

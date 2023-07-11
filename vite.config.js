@@ -7,13 +7,15 @@ import VirtualHtml from 'vite-plugin-virtual-html'
 
 const pageList = [
   // index 為預設頁面, 不能移除或改名
-  { path: 'index', title: 'demo', pug: 'demo' },
-  { path: 'home', title: 'home', pug: 'home', script: 'home' },
+  { path: 'index', title: 'demo頁面', pug: 'demo' },
+  { path: 'home', title: 'CMS產品示範平台', pug: 'home', script: 'home' },
   { path: 'about', title: 'about', pug: 'about', script: 'about' },
-  { path: 'news', title: 'news', pug: 'news', script: 'news' },
-  { path: 'news-content', title: 'news-content', pug: 'news-content', script: '' },
-  { path: 'activity', title: 'activity', pug: 'activity', script: '' },
-  { path: 'activity-content', title: 'activity-content', pug: 'activity-content', script: '' },
+  { path: 'news', title: '最新消息', pug: 'news', script: 'news' },
+  { path: 'news-content', title: '最新消息/內容頁', pug: 'news-content', script: 'news-content' },
+  { path: 'activity', title: '活動訊息', pug: 'activity', script: 'activity' },
+  { path: 'activity-content', title: '活動訊息/內容頁', pug: 'activity-content', script: '' },
+  { path: 'article', title: '文章單元', pug: 'article', script: 'article' },
+  { path: 'article-content', title: '文章單元/內容頁', pug: 'article-content', script: 'article-content' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
 ]
 
@@ -33,6 +35,8 @@ pageList.forEach((item) => {
 })
 
 export default defineConfig({
+  
+  base: process.env.NODE_ENV === 'development' ? '/' : '/demo/2023_05_mx_demo',
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
@@ -41,7 +45,7 @@ export default defineConfig({
   },
   plugins: [
     vue(),
-    pugPlugin(),
+    pugPlugin(undefined, { IS_DEV: process.env.NODE_ENV === 'development'}),
     VirtualHtml({
       pages,
       render(template, data){

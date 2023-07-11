@@ -1,17 +1,17 @@
 mixin activityCard(item)
-    a(class="flex items-center flex-col md:flex-row md:gap-32px transition-all duration-500 group" href="#" )
+    a(href="activity-content.html" class="flex-center flex-col md:flex-row md:gap-32px group trans-effect")
       if item.status === 1
-        div(class="relative md:shrink-0 overflow-hidden after_content-['進行中'] after_bg-s2 status-style")
-          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 transition-all duration-500 md:max-w-[380px] md:h-[214px] w-full")
+        div(class="relative md:shrink-0 overflow-hidden after:content-['進行中'] after:bg-s2 status-style")
+          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:max-w-[380px] md:h-[214px] w-full")
       else if item.status === 2
-        div(class="relative md:shrink-0 overflow-hidden after_content-['已結束'] after_bg-gray3 status-style")
-          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 transition-all duration-500 md:max-w-[380px] md:h-[214px] w-full") 
+        div(class="relative md:shrink-0 overflow-hidden after:content-['已結束'] after:bg-gray3 status-style")
+          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:max-w-[380px] md:h-[214px] w-full") 
       else
-        div(class="relative md:shrink-0 overflow-hidden after_content-['即將舉行'] after_bg-s3 status-style")
-          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 transition-all duration-500 md:max-w-[380px] md:h-[214px] w-full") 
-      div(class=" py-20px border-b border-solid flex flex-col md:h-full border-[#E0E5F1]")
+        div(class="relative md:shrink-0 overflow-hidden after:content-['即將舉行'] after:bg-s3 status-style")
+          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:max-w-[380px] md:h-[214px] w-full") 
+      div(class="py-20px border-b border-solid flex flex-col md:h-full border-[#E0E5F1]")
         div(class="inline text-xl leading-150 text-s2")=item.startTime
           span(class="text-xl leading-150 text-s2 px-[10px]") ~
           |!{item.endTime}
-        h3(class="h3 py-16px group-hover:text-s2 transition-all duration-500")=item.title
+        h3(class="h3 py-16px group-hover:text-s2 trans-effect")=item.title
         p(class="body text-gray2")=item.content 

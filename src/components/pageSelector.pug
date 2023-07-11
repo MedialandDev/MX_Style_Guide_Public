@@ -1,0 +1,29 @@
+mixin pageSelector()
+  div(class="flex-center justify-center gap-48px overflow-hidden")
+    div(class="flex gap-10px")
+      div(class="page-first page-arrow text-gray3 border-gray3 hover:bg-gray3")
+        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.125 11L6.125 7L11.125 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="4" y1="2.5" x2="4" y2="11.5" stroke="currentColor" stroke-linecap="round"/>
+        </svg>
+      div(class="page-prev page-arrow text-gray3 border-gray3 hover:bg-gray3")
+        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.125 12.25L4.875 7L10.125 1.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    //-選擇器頁面數字
+    div(class="flex gap-10px justify-center")
+      div(class="page-number lg:flex is-active" data-value="1") 1
+      div(class="page-number hidden lg:flex" data-value="2") 2
+      div(class="page-number hidden lg:flex" data-value="3") 3
+      div(class="page-number hidden lg:flex" data-value="4") 4
+      div(class="page-number hidden lg:flex" data-value="5") 5
+    div(class="flex gap-10px")
+      div(class="page-next page-arrow rotate-180 text-gray3 border-gray3 hover:bg-gray3")
+        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10.125 12.25L4.875 7L10.125 1.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      div(class="page-last page-arrow rotate-180 text-gray3 border-gray3 hover:bg-gray3")
+        <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M11.125 11L6.125 7L11.125 3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+          <line x1="4" y1="2.5" x2="4" y2="11.5" stroke="currentColor" stroke-linecap="round"/>
+        </svg>

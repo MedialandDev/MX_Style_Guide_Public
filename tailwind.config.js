@@ -21,6 +21,7 @@ const spacing = {
   '4px':'4px',
   '8px':'8px',
   '10px':'10px',
+  '12px':'12px',
   '16px':'16px',
   '20px':'20px',
   '24px':'24px',
@@ -55,7 +56,6 @@ export default {
       screens: screens,
       spacing: spacing,
       lineHeight: {
-
         '160': '160%',
         '150':'150%',
         '180': '180%',
@@ -76,11 +76,16 @@ export default {
           '0%, 100%':{ transform: 'translateX(0px)' },
           '50%': { transform: 'translateX(5px)' }
         },
+        faseIn: {
+          '0%': { opacity: 0 },
+          '100%': { opacity: 1 },
+        }
       },
       animation: {
         'spin-slow': 'spin 3s linear infinite',
-        'trans-left': 'transLeft .6s ease infinite',
-        'trans-right': 'transRight .6s ease infinite',
+        'trans-left': 'transLeft .6s ease forwards',
+        'trans-right': 'transRight .6s ease forwards',
+        'fase-in': 'fadeIn .5s ease forwards',
       },
     },
   },

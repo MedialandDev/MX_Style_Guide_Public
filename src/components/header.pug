@@ -2,41 +2,41 @@ div(class="bg-w1 fixed top-0 w-screen z-50")
   div(class="flex")
     div(class="linear-grad-1 w-1/2 h-0.5")
     div(class="linear-grad-2 w-1/2 h-0.5")
-  div(class="container flex justify-between items-center pr-0 md:pr-48px lg:pr-60px xl:pr-auto")
-    a(href="home.html" class="relative py-16px")
-      img(src="/img/logo.svg", alt="CMS示範平台", width="244", height="29")
+  div(class="container flex-center justify-between pr-0 md:pr-48px lg:pr-60px xl:pr-auto")
+    a(href=IS_DEV ? 'home.html': '/demo/2023_05_mx_demo/home.html' class="relative py-16px")
+      img(src="img/logo.svg", alt="CMS示範平台", width="244", height="29")
     ul(class=" hidden md:flex gap-48px")
       li
-        a(class="menu-text" href="news.html") 最新消息
+        a(class="menu-text" href=IS_DEV ? 'news.html': '/demo/2023_05_mx_demo/news.html') 最新消息
       li
-        a(class="menu-text" href="activity.html") 活動訊息
+        a(class="menu-text" href=IS_DEV ? 'activity.html': '/demo/2023_05_mx_demo/activity.html') 活動訊息
       li
-        a(class="menu-text" href="post.html") 文章單元
+        a(class="menu-text" href=IS_DEV ? 'article.html': '/demo/2023_05_mx_demo/article.html') 文章單元
     div(class="menu-button px-16px py-30px block md:hidden")
       i(class="block h-px w-24px bg-gray2 translate-y-1 transition-all duration-500")
       i(class="block h-px w-24px bg-gray2 -translate-y-1 transition-all duration-500")
-      div(class="menu-wrap fixed md:hidden top-60px left-0 left-full w-full h-screen flex-center flex-col overflow-hidden bg-[#F5F5F4] transition-all duration-500")
+      div(class="menu-wrap fixed md:hidden top-60px left-0 left-full w-full h-screen flex-center justify-center flex-col overflow-hidden bg-[#F5F5F4] transition-all duration-500")
         ul(class="flex gap-48px flex-col items-center")
           li
-            a(class="menu-text flex items-center gap-[10px]" href="news.html") 
+            a(class="menu-text flex-center gap-[10px]" href=IS_DEV ? 'news.html': '/demo/2023_05_mx_demo/news.html') 
               span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 01
               span(class="linear-grad-1 h-px w-40px inline-block")
               |最新消息
           li
-            a(class="menu-text flex items-center gap-[10px]" href="activity.html") 
-              span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 01
+            a(class="menu-text flex-center gap-[10px]" href=IS_DEV ? 'activity.html': '/demo/2023_05_mx_demo/activity.html') 
+              span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 02
               span(class="linear-grad-1 h-px w-40px inline-block")
               |活動訊息
           li
-            a(class="menu-text flex items-center gap-[10px]" href="post.html") 
-              span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 01
+            a(class="menu-text flex-center gap-[10px]" href=IS_DEV ? 'article.html': '/demo/2023_05_mx_demo/article.html') 
+              span(class="text-xs font-bold text-gray3 leading-150 tracking-[.03em]") 03
               span(class="linear-grad-1 h-px w-40px inline-block")
               |文章單元
-        div(class="flex-center mt-80px gap-32px")
+        div(class="flex-center justify-center mt-80px gap-32px")
           a(class="p-[15px] border border-solid border-gray2 rounded-[100px]" href="#")
-            img(src="/img/facebook-icon.svg", alt="facebook", width="20", height="20")
+            img(src="img/facebook-icon.svg", alt="facebook", width="20", height="20")
           a(class="p-[15px] border border-solid border-gray2 rounded-[100px]" href="#")
-            img(src="/img/youtube-icon.svg", alt="youtube", width="20", height="20")
+            img(src="img/youtube-icon.svg", alt="youtube", width="20", height="20")
 script.
   const menu = document.querySelector('.menu-button');
   menu.addEventListener('click', function() {

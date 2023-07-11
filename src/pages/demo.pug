@@ -1,7 +1,17 @@
 include ../components/header.pug
-section.container
+section.container(class="mt-80px")
+  div(class="mb-80px flex flex-col gap-24px py-20px px-10px border border-s2")
+    h2(class="h2") 測試頁面
+    //Note: 如果要在本地端build 且 preview，所有的連結都要改成 IS_DEV ? : 判斷（請參考header)
+    a(href="home.html" class="text-gray1") 首頁 >>
+    a(href="news.html" class="text-gray1") 最新消息（tab,底下分頁js功能只寫在這） >>
+    a(href="news-content.html" class="text-gray1") 最新消息內頁 >>
+    a(href="activity.html" class="text-gray1") 活動訊息 >>
+    a(href="activity-content.html" class="text-gray1") 活動訊息內頁 >>
+    a(href="article.html" class="text-gray1") 文章單元 >>
+    a(href="article-content.html" class="text-gray1") 文章單元內頁 >>
   h1(class="h1") 文字
-  div(class="flex items-center gap-5 flex-wrap py-24px")
+  div(class="flex-center gap-5 flex-wrap py-24px")
     h1(class="h1") h1 
     h2(class="h2") h2 
     h3(class="h3") h3 
@@ -9,32 +19,36 @@ section.container
     p(class="button-text") button-text
   div(class="grid grid-cols-2")
     div(class="row")
+      //- ###顏色###
       h1(class="h1") 主要色
-      div(class="flex items-center gap-5 py-24px flex-wrap")
+      div(class="flex-center gap-5 py-24px flex-wrap")
         p(class="text-s1") #F0844A - s1
         p(class="text-s2") #35B597 - s2
         p(class="text-s3") #C70067 - s3
         p(class="text-s4 ") #005D91 - s4
     div(class="row")
       h1(class="h1") 輔助顏色
-      div(class="flex items-center gap-5 py-24px flex-wrap")
+      div(class="flex-center gap-5 py-24px flex-wrap")
         p(class="text-gray1") #313334 - gray1
         p(class="text-gray2") #585A5C - gray2
         p(class="text-gray3") #9FA0A0 - gray3
         p(class="text-w1") #FFFEFD - w1
   h1(class="h1") FONT 
   p 思源黑體/tw Tajawal/en
-  
   h1(class="h1 py-24px") 互動元件設定
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 主選單
+      //- ### 選單字 menu-text ###
       a(class="menu-text") 台電故事
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") TAB按鈕
+      //- ### 分類篩選 tab-button ###
       a(class="tab-button") 分類篩選
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 按鈕+icon
-      //- grup 用於當你btn hover時，子層也有做變換效果/
+      
+      //- ### icon按鈕 button-primary ###
+      //Note group 用於當你btn hover時，子層也有做變換效果/
       div(class="button-primary group")
         div(class="button-text text-s3 group-hover:text-w1") 按鈕名稱
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon text-s3 group-hover:text-w1">
@@ -45,38 +59,44 @@ section.container
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="button-icon text-s3 group-hover:text-w1">
         <path d="M2.25 11.9375V13.5313C2.25 13.9539 2.41791 14.3593 2.7168 14.6582C3.01568 14.9571 3.42106 15.125 3.84375 15.125L13.4063 15.125C13.8289 15.125 14.2343 14.9571 14.5332 14.6582C14.8321 14.3593 15 13.9539 15 13.5313V11.9375M11.8125 8.75L8.625 11.9375M8.625 11.9375L5.4375 8.75M8.625 11.9375V2.375" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") CMS/文字連結
-      a.text-link(href="#") 文字連結
+      //- ### 文字連結 link-text ###
+      a.link-text(href="#") 文字連結
         <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
            <path d="M2 11.0001L18.1563 11.0001M18.1563 11.0001L13.9137 6.75742M18.1563 11.0001L13.9137 15.2427" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 切換按鈕
-      a.swtich-button
-        img(src="/img/arrow-icon.svg", alt="")
+      //- ### 切換按鈕 switch-button ###
+      a.switch-button
+        img(src="img/arrow-icon.svg", alt="")
 
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 分頁操作
-      a(class="paging-arrow")
+      //- ### 分頁箭頭(左) page-arrow ###
+      a(class="page-arrow")
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12.25 7L1.75 6.99999M1.75 6.99999L6.475 11.725M1.75 6.99999L6.475 2.27499" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      //- .right 是右邊
-      a(class="paging-arrow rotate-180")
+      //- ### 分頁箭頭(右) page-arrow.rotate-180 ###
+      a(class="page-arrow rotate-180")
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12.25 7L1.75 6.99999M1.75 6.99999L6.475 11.725M1.75 6.99999L6.475 2.27499" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      p(class="paging-number") 1
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+      //- ### 分頁數字 page-number ###
+      p(class="page-number") 1
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 內容分享按鈕
+      //- ### 分享按鈕 share-button ###
       a(href="#")
-        img(src="/img/line-g-icon.svg" , alt="", srcset="", class="share-button") 
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+        img(src="img/line-g-icon.svg" , alt="", srcset="", class="share-button") 
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 內容頁下方功能
-      //  僅有文字沒有下底線.text-link.border-0
-      a(class="text-link button-text border-0") 回列表頁
-    div(class="flex items-center gap-5 py-24px flex-wrap")
+      //  僅有文字沒有下底線.link-text.border-0
+      //- ### 回列表頁 link-text.button-text.border-0 ###
+      a(class="link-text button-text border-0") 回列表頁
+    div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 額外按鈕Test
       a(class=" button-text button-primary button-slide button-slide-down shadow-s3 hover:shadow-s3 hover:text-w1")  slide Down
 

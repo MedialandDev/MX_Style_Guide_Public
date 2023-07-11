@@ -1,112 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import '@/css/component.css';
 
 @layer base {
   a,button,[class*="button"] {
     @apply cursor-pointer;
   }
   :hover,:active {
-    @apply transition;
+    @apply transition-all duration-500;
   }
 }
-@layer components {
-  .h1 {
-    @apply text-[45px] text-gray1 font-bold tracking-[.03em] ;
-  }
-  .h2 {
-    @apply text-[25px] text-gray1 font-bold leading-160 tracking-[.05em];
-  }
-  .h3 {
-    @apply text-[20px] text-gray1 font-bold leading-160 tracking-[.03em];
-  }
-  .body {
-    @apply text-[15px] text-gray1 font-normal leading-180 tracking-[.03em];
-  }
-  .button-text {
-    @apply text-[15px] text-gray1 font-bold leading-160 tracking-[.03em];
-  }
-  /* -----互動元件設定----- */
-  /* 主選單 */
-  .menu-text {
-    @apply text-base text-gray2 leading-150  tracking-[.03em] hover:text-gray1 active:text-gray1;
-  }
-  /* TAB按鈕 */
-  .tab-button {
-    @apply button-text px-20px py-8px text-s4 border rounded-[100px] border-s4 border-solid bg-transparent hover:bg-s4/20 active:bg-s4 active:text-w1;
-  }
-  /* TAB按鈕 --- 選取狀態 */
-  .tab-button.is-active{
-    @apply bg-s4 text-w1;
-  }
-  /* tage 按鈕 */
-  .tage-button {
-    @apply text-[13px] font-bold px-[15px] py-[10px] leading-150 border rounded-[100px] text-s2 border-s2 border-solid bg-transparent;
-  }
-  /* 活動狀態按鈕 */
-  .status-style {
-    @apply after:absolute after:top-0 after:text-[13px] after:text-w1 after:px-[15px] after:py-[10px] after:rounded-r-[15px]
-  }
-  /* 按鈕 icon */
-  .button-primary {
-    @apply w-full xl:max-w-[900px] md:max-w-[528px] cursor-pointer rounded-[100px] py-16px px-30px bg-transparent border-solid border flex justify-center items-center border-s3 hover:bg-s3 transition;
-  }
-  .button-primary > .button-text {
-    @apply basis-full text-center;
-  }
-  .button-primary > .button-icon {
-    @apply basis-16px;
-  }
-  /* CMS/文字連結 */
-  .text-link {
-    @apply text-[15px] leading-180  flex gap-[10px] items-center text-s3 hover:opacity-60 active:opacity-100 transition border-b border-solid border-s3 pb-4px;
-  }
-  /* 切換按鈕 */
-  .swtich-button {
-    @apply p-30px bg-white  hover:bg-[#F3F3F3] transition rounded-[100px];
-  }
-  /* 分頁 -- 預設左邊 */
-  .paging-arrow {
-    @apply p-[13px] border border-solid rounded-[25px] bg-transparent text-s4 border-s4 hover:bg-s4 hover:text-w1 cursor-pointer; 
-  }
-  /* 分頁 -- 數字 */
-  .paging-number {
-    @apply button-text w-[40px] h-[40px] text-center border border-solid rounded-[25px] bg-transparent text-s4 border-transparent hover:bg-s4 hover:text-w1  flex justify-center items-center cursor-pointer; 
-  }
-  /* 內容分享按鈕 */
-  .share-button {
-    @apply group-hover:bg-[#F3F3F3] hover:bg-[#F3F3F3] p-10px border rounded-[25px] border-gray3 transition-all duration-500 ;
-  }
-  /* -----漸層顏色----- */
-  .linear-grad-1 {
-    @apply bg-gradient-to-r from-s1 to-s3;
-  }
-  .linear-grad-2 {
-    @apply bg-gradient-to-r from-s2 to-s4;
-  }
-  /* 額外test */
-  .button-slide {
-    @apply shadow-[inset_0_0_0_0] ease-in duration-500;
-  }
-  .button-slide-down:hover {
-    @apply shadow-[inset_0_100px_0_0] ease-linear duration-500;
-  }
-  /* -----常見設定----- */
-  .flex-center {
-    @apply  flex justify-center items-center;
-  }
-}
+
 /* -----容器大小----- */
 .container{
   max-width: 1300px;
 }
-/* .bg-blue {
-  background-image: url('/img/bg-blue-pc.png');
-  background-size: 1100px 500px;
-  background-repeat: no-repeat;
-  background-position: top center;
-} */
-/* -----全域字體設定----- */
 
 
 

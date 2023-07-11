@@ -12,8 +12,16 @@ export const formComponentValid = (validateList) => {
           messageList[index].classList.toggle('text-s2-400', rule(e.target.value))
         })
         e.target.classList.toggle('error', ruleList.some(({ rule }) => !rule(e.target.value)))
-        // e.target.classList.toggle('border-s2-400', ruleList.every(({ rule }) => rule(e.target.value)))
       })
     })
   })
 }
+export const paginationOption = {
+  el: '.swiper-pagination',
+  clickable: true,
+};
+export const navigationOption = (extrabtn = '') => ({
+  nextEl: `.swiper-button-next${extrabtn}`,
+  prevEl: `.swiper-button-prev${extrabtn}`,
+});
+

@@ -1,30 +1,52 @@
 include ../components/header.pug
+include ../components/pageNavigation.pug
+include ../data/fakeData.pug
+
 div(class="container pb-80px mt-64px")
+  img(class="bg-bubble hidden md:block" src="img/bg-pink-pc.png", alt="" )
+  img(class="bg-bubble md:hidden" src="img/bg-pink-mob.png", alt="")
   section 
-    p(class="flex items-center text-xs text-gray3 pt-8px") HOME
+    p(class="flex-center text-xs text-gray3 pt-8px") HOME
       span(class="h-px bg-s2 w-2.5 block mx-[7px]")
       | 活動訊息
     h1(class="h1 py-48px") 米蘭傳播集團參加政治大學校園就業博覽會
     div(class="flex justify-between pb-20px")
       div(class="inline text-xl leading-150 text-s2") 2022.07.01
-        span(class="text-xl leading-150 text-s2 px-[10px]") ~
+        span(class="text-xl leading-150 text-s2 px-[10px] hidden md:inline") ~
+        br(class="block md:hidden")
         |2022.09.28
       div(class="flex") 
         a(href="#")
-          img(src="/img/line-g-icon.svg" , alt="", class="share-button", width=40) 
+          img(src="img/line-g-icon.svg" , alt="", class="share-button", width=40) 
         a(href="#")
-          img(src="/img/facebook-g-icon.svg" , alt="", class="share-button", width=40) 
+          img(src="img/facebook-g-icon.svg" , alt="", class="share-button", width=40) 
         a(href="#")
-          img(src="/img/link-g-icon.svg" , alt="", class="share-button", width=40) 
+          img(src="img/link-g-icon.svg" , alt="", class="share-button", width=40) 
         a(href="#")
-          img(src="/img/print-g-icon.svg" , alt="", class="share-button", width=40)
+          img(src="img/print-g-icon.svg" , alt="", class="share-button", width=40)
     div(class="w-full h-0.5 linear-grad-2")
-  section(class="pt-48px pb-80px")
-    div(class="gap-[15px] flex items-center pb-20px")
-      div(class="w-2 h-4 rounded-[30px] linear-grad-1")
+  section(class="pt-48px")
+    div(class="gap-10px md:gap-[15px] flex md:items-center pb-20px")
+      div(class="title-dot")
       h2.h2 米蘭傳播集團前進校園！受邀參加政治大學舉辦的校園就業博覽會
-    p(class="body text-gray2 pb-48px") 數位環境與科技行銷變化快速，因此我們更專注於平台規劃與互動體驗，以使用者為設計決策中心，在品牌與用戶間創造美好體驗；將數據結合科技創新，全方位掌握趨勢脈絡，提供你最適切並領先業界的解決方案。
+    // Note裡面文字 圖片 底下都是間隔48px mb-48px
+    p(class="body text-gray2") 米蘭傳播集團是一家專注於數位行銷和傳播解決方案的公司，我們致力於為客戶提供創新的營銷策略和解決方案。在本次博覽會上，我們將展示我們的服務和提供有關職業機會的資訊。
+    br
+    br
+    p(class="body text-gray2 mb-48px") 我們將本次活動傳遞米蘭傳播集團的創立背景和價值觀，讓同學們更了解我們的使命和核心服務。並提供詳細的招募訊息，包括實習機會和全職職位。
+    a(href="#" class="link-text mx-auto mb-48px") 文字連結文字連結文字連結文字連結
+      <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M2 11.0001L18.1563 11.0001M18.1563 11.0001L13.9137 6.75742M18.1563 11.0001L13.9137 15.2427" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    // 單圖
+    //-Note 照片為假圖
+    figure(class="mb-48px") 
+      img(src="https://fakeimg.pl/1300x732/?text=16:9", alt="", srcset="")
+      figcaption(class="body text-gray2 text-center py-8px md:py-16px") 圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片
+    //- 切換頁面
+    +pageNavigation(pageNavigationList[0])
 
+include ../components/footer.pug
 
 
 

@@ -1,0 +1,178 @@
+@layer components {
+  /* -----常見設定----- */
+  .flex-center {
+    @apply  flex items-center;
+  }
+  .bg-bubble {
+    @apply absolute top-[0px] md:top-[60px] w-11/12 sm:w-9/12 md:w-10/12 xl:w-[1260px] md:max-h-[500px] object-contain md:-translate-x-2/4 left-auto md:left-[50%] right-0 -z-[1];
+  }
+  .trans-effect {
+    @apply transition-all duration-500;
+  }
+  /* -----字體設定----- */
+  .h1 {
+    @apply text-[45px] text-gray1 font-bold tracking-[.03em];
+  }
+  .h2 {
+    @apply text-[25px] text-gray1 font-bold leading-160 tracking-[.05em];
+  }
+  .h3 {
+    @apply text-[20px] text-gray1 font-bold leading-160 tracking-[.03em];
+  }
+  .body {
+    @apply text-[15px] text-gray1 font-normal leading-180 tracking-[.03em];
+  }
+  .button-text {
+    @apply text-[15px] text-gray1 font-bold leading-160 tracking-[.03em];
+  }
+  /* -----互動元件設定----- */
+  /* 主選單 */
+  .test {
+    @apply text-base text-gray2 leading-150;
+  }
+  .menu-text {
+    @apply text-base text-gray2 leading-150 tracking-[.03em] hover:text-gray1 active:text-gray1;
+  }
+  /* TAB按鈕 - 預設藍色 */
+  .tab-button {
+    @apply button-text px-20px py-8px text-s4 border rounded-[100px] border-s4 border-solid bg-transparent hover:bg-s4/20 active:bg-s4 active:text-w1;
+    &.is-active{
+      @apply bg-s4 text-w1;
+    }
+  }
+  /* TAB按鈕 - 灰色 */
+  .tab-button.gray1 {
+    @apply text-gray1 border-gray1 hover:bg-gray1/20;
+    &.is-active {
+      @apply bg-gray1 text-w1 hover:text-w1;
+    }
+  }
+  /* tage 按鈕 */
+  .tage-button {
+    @apply w-fit text-[13px] font-bold px-[15px] py-[10px] leading-150 border rounded-[100px] text-s2 border-s2 border-solid bg-transparent;
+  }
+  /* 活動狀態按鈕 */
+  .status-style {
+    @apply after:absolute after:top-0 after:text-[13px] after:text-w1 after:px-[15px] after:py-[10px] after:rounded-r-[15px];
+  }
+  /* 按鈕 icon */
+  .button-primary {
+    @apply w-full xl:max-w-[900px] md:max-w-[528px] cursor-pointer rounded-[100px] py-8px md:py-16px px-30px bg-transparent border-solid border flex justify-center items-center border-s3 hover:bg-s3 transition;
+    & > .button-text {
+      @apply basis-full text-center;
+    }
+    & > .button-icon {
+      @apply basis-16px;
+    }
+  }
+  /* CMS/文字連結 */
+  .link-text {
+    @apply text-[15px] leading-180 flex gap-[10px] items-center text-s3 hover:opacity-60 active:opacity-100 transition border-b border-solid border-s3 pb-4px w-fit;
+  }
+  /* 切換按鈕 */
+  .switch-button {
+    @apply p-30px bg-white hover:bg-[#F3F3F3] transition rounded-[100px];
+  }
+  /* 分頁 -- 預設左邊 */
+  .page-arrow {
+    @apply p-[13px] border border-solid rounded-[25px] bg-transparent text-s4 border-s4 hover:bg-s4 hover:text-w1 cursor-pointer; 
+    &.is-disable {
+      @apply opacity-30 pointer-events-none;
+    }
+    & > svg {
+      @apply transition-none;
+    }
+  }
+  /* 分頁 -- 數字 */
+  .page-number {
+    @apply button-text w-[40px] h-[40px] text-center border border-solid rounded-[25px] bg-transparent text-s4 border-transparent hover:bg-s4 hover:text-w1 flex justify-center items-center cursor-pointer; 
+    &.is-active {
+      @apply text-w1 bg-s4;
+    }
+    &.is-disable {
+      @apply opacity-30 pointer-events-none;
+    }
+  }
+  /* 內容分享按鈕 */
+  .share-button {
+    @apply group-hover:bg-[#F3F3F3] hover:bg-[#F3F3F3] p-10px border rounded-[25px] border-gray3 transition-all duration-500;
+  }
+  /* -----漸層顏色----- */
+  .linear-grad-1 {
+    @apply bg-gradient-to-r from-s1 to-s3;
+  }
+  .linear-grad-2 {
+    @apply bg-gradient-to-r from-s2 to-s4;
+  }
+  /* ----- 引言 ----- */
+  .intro-area {
+    @apply flex flex-col gap-10px py-24px px-60px md:px-48px md:py-32px bg-[#3FD3B1] text-w1 text-lg leading-180 font-bold tracking-[.03em] rounded-[100px] max-w-[1250px];
+  }
+  /* 額外test */
+  .button-slide {
+    @apply shadow-[inset_0_0_0_0] ease-in duration-500;
+  }
+  .button-slide-down:hover {
+    @apply shadow-[inset_0_100px_0_0] ease-linear duration-500;
+  }
+  /* ----- 標題點 ----- */
+  .title-dot {
+    @apply w-2 h-4 rounded-[30px] linear-grad-1 shrink-0 mt-12px md:mt-0;
+  }
+   /* -----Swiper 設定----- */
+  .swiper {
+    .swiper-button-next{
+      @apply right-24px xl:right-32px;
+    }
+    .swiper-button-prev {
+      @apply left-24px xl:left-32px;
+    }
+    /* banner */
+    &.swiper-banner {
+      @apply pb-20px md:pb-30px;
+      .swiper-button-next,.swiper-button-prev {
+        @apply hidden md:block switch-button w-[unset] h-[unset] top-[calc(50%-45px)];
+      }
+      .swiper-pagination {
+        @apply relative -bottom-[20px] md:-bottom-[30px] flex-center justify-center gap-20px;
+      }
+      .swiper-slide {
+        & > img {
+          @apply h-[100vw] md:h-fit object-cover;
+        }
+      }
+    }
+    /* mult-image */
+    &.swiper-images {
+      @apply pb-[22px] md:pb-[42px]; 
+      & .swiper-button-next, .swiper-button-prev {
+        @apply block switch-button w-[unset] h-[unset] p-[6px] md:p-[15px] lg:p-20px top-[calc(50%)] md:top-[calc(50%-20px)] lg:top-[calc(50%-30px)];
+        & >img {
+          @apply w-2 md:w-[10px] lg:w-20px;
+        }
+      }
+      .swiper-button-next {
+        @apply sm:right-[calc(10%-12px)] md:right-[calc(10%-20px)] lg:right-24px xl:right-32px;
+      }
+      .swiper-button-prev {
+        @apply sm:left-[calc(10%-12px)] md:left-[calc(10%-20px)]  lg:left-24px xl:left-32px;
+      }
+      .swiper-pagination {
+        @apply relative -bottom-[10px] md:-bottom-[20px] flex-center justify-center gap-10px;
+        & .swiper-pagination-bullet {
+          @apply mx-0 basis-full md:basis-24;
+        }
+      }
+      .swiper-slide {
+        @apply w-7/12 bg-[#e2e2e2] overflow-visible;
+        &:not(.swiper-slide-active) {
+          @apply brightness-[0.75]
+        }
+        & > img {
+          @apply object-cover mx-auto h-[185px] md:h-[430px] xl:h-[560px];
+          /* xl:max-w-[unset] xl:w-[unset]  */
+        }
+      }
+    }
+  }
+}

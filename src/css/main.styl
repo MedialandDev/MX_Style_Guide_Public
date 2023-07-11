@@ -1,52 +1,48 @@
+@font-face {
+    font-family: "verdana";
+    src: url("/demo/2023_05_mx_demo/font/verdana.ttf");
+}
 html, body
-  // font-family 'Tajawal','Noto Sans TC', Verdana, Arial,'微軟正黑體修正', '微軟正黑體', 'Microsoft JhengHei', '儷黑 Pro', 'LiHei Pro', sans-serif
-  font-family 'Noto Sans TC','Tajawal', Verdana, Arial,'微軟正黑體修正', '微軟正黑體', 'Microsoft JhengHei', '儷黑 Pro', 'LiHei Pro', sans-serif
+  font-family 'verdana','Noto Sans TC', Verdana, Arial,'微軟正黑體修正', '微軟正黑體', 'Microsoft JhengHei', '儷黑 Pro', 'LiHei Pro', sans-serif
+  // font-family 'Noto Sans TC','Tajawal', Verdana, Arial,'微軟正黑體修正', '微軟正黑體', 'Microsoft JhengHei', '儷黑 Pro', 'LiHei Pro', sans-serif
 
-// --- swiper輪播預設設定----
+// --- swiper輪播修改預設設定----
 .swiper
-  .swiper-button-next, .swiper-button-prev
-    width unset
-    height unset
+  .swiper-button-next,.swiper-button-prev
     &::after 
       content: ''
   .swiper-pagination
-    position relative
-  .swiper-pagination-bullet 
-    flex-basis 300px
-    height 2px
-    border-radius 0
-    position relative
-    overflow hidden
-    opacity 1
-    bottom 0px //輪播的距離
-    &::before 
-      content ""
-      display block
-      position absolute
+    .swiper-pagination-bullet
+      flex-basis 300px
+      height 2px
+      border-radius 0
+      position relative
+      overflow hidden
+      opacity 1
+      bottom 0px //輪播的距離
+      &::before 
+        content ""
+        display block
+        position absolute
+        background: #E0E5F1
+        top 0
+        right 0
+        bottom 0
+        left 0
+    .swiper-pagination-bullet-active 
       background: #E0E5F1
-      top 0
-      right 0
-      bottom 0
-      left 0
-  .swiper-pagination-bullet-active 
-    background: #E0E5F1
-    &::before 
-      background-color: #C70067
-      animation: slide-progress 3.5s cubic-bezier(.3,0,.3,1) forwards;
+      &::before 
+        background-color: #C70067
+        animation: slide-progress 5s linear forwards;
   &.swiper-paused
     .swiper-pagination-bullet-active 
       &::before 
-        animation-play-state: paused;
-@keyframes slide-progress {
-	0% {
+        animation-play-state paused
+@keyframes slide-progress 
+	0% 
 		transform: translateX(-100%);
-		// width: 0;
-	}
-	100% {
+	100% 
 		transform: translateX(0);
-		// width: 100%;
-	}
-}
     
 .form-input
   &.error
