@@ -53,7 +53,7 @@
   }
   /* 活動狀態按鈕 */
   .status-style {
-    @apply after:absolute after:top-0 after:text-[13px] after:text-w1 after:px-[15px] after:py-[10px] after:rounded-r-[15px];
+    @apply after:absolute after:top-0 after:text-[13px] after:text-w1 after:px-[15px] after:py-[10px] after:rounded-r-[40px];
   }
   /* 按鈕 icon */
   .button-primary {
@@ -75,7 +75,7 @@
   }
   /* 分頁 -- 預設左邊 */
   .page-arrow {
-    @apply p-[13px] border border-solid rounded-[25px] bg-transparent text-s4 border-s4 hover:bg-s4 hover:text-w1 cursor-pointer; 
+    @apply p-12px border border-solid rounded-[25px] bg-transparent text-s4 border-s4 hover:bg-s4 hover:text-w1 cursor-pointer; 
     &.is-disable {
       @apply opacity-30 pointer-events-none;
     }
@@ -87,7 +87,7 @@
   .page-number {
     @apply button-text w-[40px] h-[40px] text-center border border-solid rounded-[25px] bg-transparent text-s4 border-transparent hover:bg-s4 hover:text-w1 flex justify-center items-center cursor-pointer; 
     &.is-active {
-      @apply text-w1 bg-s4;
+      @apply text-w1 bg-s4 flex;
     }
     &.is-disable {
       @apply opacity-30 pointer-events-none;
@@ -146,7 +146,7 @@
     &.swiper-images {
       @apply pb-[22px] md:pb-[42px]; 
       & .swiper-button-next, .swiper-button-prev {
-        @apply block switch-button w-[unset] h-[unset] p-[6px] md:p-[15px] lg:p-20px top-[calc(50%)] md:top-[calc(50%-20px)] lg:top-[calc(50%-30px)];
+        @apply switch-button w-[unset] h-[unset] p-[6px] md:p-[15px] lg:p-20px top-[calc(50%)] md:top-[calc(50%-20px)] lg:top-[calc(50%-30px)];
         & >img {
           @apply w-2 md:w-[10px] lg:w-20px;
         }

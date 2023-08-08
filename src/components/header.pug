@@ -3,8 +3,8 @@ div(class="bg-w1 fixed top-0 w-screen z-50")
     div(class="linear-grad-1 w-1/2 h-0.5")
     div(class="linear-grad-2 w-1/2 h-0.5")
   div(class="container flex-center justify-between pr-0 md:pr-48px lg:pr-60px xl:pr-auto")
-    a(href=IS_DEV ? 'home.html': '/demo/2023_05_mx_demo/home.html' class="relative py-16px")
-      img(src="img/logo.svg", alt="CMS示範平台", width="244", height="29")
+    a(href=IS_DEV ? '/home.html': '/demo/2023_05_mx_demo/home.html' class="relative py-16px")
+      img(src="assets/img/logo.svg", alt="CMS示範平台", width="244", height="29")
     ul(class=" hidden md:flex gap-48px")
       li
         a(class="menu-text" href=IS_DEV ? 'news.html': '/demo/2023_05_mx_demo/news.html') 最新消息
@@ -34,9 +34,9 @@ div(class="bg-w1 fixed top-0 w-screen z-50")
               |文章單元
         div(class="flex-center justify-center mt-80px gap-32px")
           a(class="p-[15px] border border-solid border-gray2 rounded-[100px]" href="#")
-            img(src="img/facebook-icon.svg", alt="facebook", width="20", height="20")
+            img(src="assets/img/facebook-icon.svg", alt="facebook", width="20", height="20")
           a(class="p-[15px] border border-solid border-gray2 rounded-[100px]" href="#")
-            img(src="img/youtube-icon.svg", alt="youtube", width="20", height="20")
+            img(src="assets/img/youtube-icon.svg", alt="youtube", width="20", height="20")
 script.
   const menu = document.querySelector('.menu-button');
   menu.addEventListener('click', function() {

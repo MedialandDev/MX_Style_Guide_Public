@@ -1,5 +1,6 @@
-mixin newsCard(item,dataValue)
-  a(href="news-content.html" class="list-card flex-center flex-col md:flex-row gap-48px justify-between border-b border-solid group trans-effect border-[#E0E5F1]", data-value=dataValue)
+mixin newsCard(item)
+  //0802  flex-center移除改成 flex items-start md:items-center
+  a(href="news-content.html" class="list-card flex items-start md:items-center flex-col md:flex-row gap-48px justify-between border-b border-solid group trans-effect border-[#E0E5F1]" data-value=item.dataValue)
     div(class="flex flex-col gap-16px mt-20px mb-24px md:mb-28px")
       div(class="flex-center gap-20px")
         div(class="text-s2 border-s2 tage-button")=item.sort
@@ -7,5 +8,5 @@ mixin newsCard(item,dataValue)
       h3(class="h3 group-hover:text-s2 trans-effect")=item.title
       p(class="body text-gray1")=item.content
     div(class="hidden md:block switch-button border-[#9FA0A033] border border-solid w-fit h-fit p-20px group-hover:bg-[#F3F3F3] group-hover:border-transparent")
-      img(src="img/arrow-icon.svg", alt="switch-button")
+      img(src="assets/img/arrow-icon.svg", alt="switch-button")
   

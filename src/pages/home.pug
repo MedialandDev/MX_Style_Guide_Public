@@ -3,23 +3,23 @@ include ../components/list/activityCard.pug
 include ../components/list/articleCard.pug 
 include ../components/list/newsCard.pug  
 include ../data/fakeData.pug
-
-link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css")
-script(src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js")
+//0822 link,script 改成 @8
+link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css")
+script(src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js")
 
 div(class="pb-48px mt-64px")
   div(class="swiper swiper-banner")
     div(class="swiper-wrapper")
-      div(class="swiper-slide")
-        img(src="https://fakeimg.pl/3200x1800/?text=16:9", alt="", srcset="")
-      div(class="swiper-slide")
-        img(src="https://fakeimg.pl/3200x1800/?text=16:9", alt="", srcset="")
-      div(class="swiper-slide")
-        img(src="https://fakeimg.pl/3200x1800/?text=16:9", alt="", srcset="")
+      - for(i=0; i < 3 ; i++)
+        // 一個 banner start
+        a(href="#" class="swiper-slide")
+          //0804 請在class 加上 mx-auto
+          img(src="https://fakeimg.pl/3200x1800/?text=16:9", alt="", class="mx-auto")
+        // 一個 banner end
     div(class="swiper-button-next")
-      img(src="img/arrow-icon.svg", alt="")
+      img(src="assets/img/arrow-icon.svg", alt="")
     div(class="swiper-button-prev")
-      img(src="img/arrow-icon.svg", alt="", class="rotate-180")
+      img(src="assets/img/arrow-icon.svg", alt="", class="rotate-180")
     div(class="container")
       div(class="swiper-pagination")
 div(class="container pb-80px mt-48px")
@@ -27,17 +27,23 @@ div(class="container pb-80px mt-48px")
     h2(class="h1 text-s4 my-48px") 最新消息
     div(class="grid gap-16px")
       - for(i=0; i < fakeList.length ; i++)
+        // 一個 卡片 start
         +newsCard(fakeList[i])
+        // 一個 卡片 end
   section(class="pb-48px")
     h2(class="h1 text-s4 my-48px") 最新活動
     div(class="grid gap-48px")
       - for(i=0; i < activityList.length ; i++)
+        // 一個 卡片 start
         +activityCard(activityList[i])
+        // 一個 卡片 end
   section(class="pb-48px")
     h2(class="h1 text-s4 my-48px") 最新文章
     div(class="grid justify-between md:grid-cols-3-card md:pb-48px gap-48px md:gap-[30px] xl:gap-[unset]")
       - for(i=0; i < articleList.length - 3 ; i++)
+        // 一個 卡片 start
         +articleCard(articleList[i])
+        // 一個 卡片 end
 
 
 

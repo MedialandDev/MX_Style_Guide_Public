@@ -1,49 +1,22 @@
-import { paginationOption, navigationOption } from "./common";
-const swiperImages = new Swiper('.swiper-images', {
-  watchOverflow: true,
-  pagination: paginationOption,
-  navigation: navigationOption(),
-  slidesPerView : 1.25,  
-  centeredSlides: true,
-  spaceBetween : 4,
-  autoplay: {
-    delay: 5000,
-		disableOnInteraction: false
-  },
-  loop: true,
-  watchSlidesProgress:true,
-  on: {
-    transitionStart: function() {
-    },
-    slideChangeTransitionEnd: function() {
-      const { dataset } = document.querySelector('.swiper-slide-active');
-      const imageText = document.querySelector('.image-text');
-      imageText.innerText = dataset.text
-    },
-  },
+import { multSwiperImage } from "./common";
+// 複製按鈕
+const copyButtons = document.querySelectorAll('.copy-button');
+copyButtons.forEach(function(el) {
+  el.addEventListener('click', function() {
+    let link = this.getAttribute('data-link');
+    // 輸入框
+    let tempInput = document.createElement('input');
+    tempInput.style.position = 'absolute';
+    tempInput.style.left = '-9999px';
+    tempInput.value = link;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    tempInput.setSelectionRange(0, link.length);
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+    alert(`你已經複製 ${link}`);
+  });
 });
-
-document.addEventListener('mouseenter', event => {
-	const el = event.target;
-	if (el && el.matches && el.matches('.swiper-images')) {
-		el.swiper.autoplay.stop();
-		el.classList.add('swiper-paused');
-		const activeNavItem = el.querySelector('.swiper-pagination-bullet-active');
-		activeNavItem.style.animationPlayState="paused";
-    console.log('Stooooppp',activeNavItem)
-	}
-}, true);
-
-document.addEventListener('mouseleave', event => {
-	const el = event.target;
-	if (el && el.matches && el.matches('.swiper-images')) {
-		el.swiper.autoplay.start();
-		el.classList.remove('swiper-paused');
-		const activeNavItem = el.querySelector('.swiper-pagination-bullet-active');
-		activeNavItem.classList.remove('swiper-pagination-bullet-active');
-		setTimeout(() => {
-			activeNavItem.classList.add('swiper-pagination-bullet-active');
-		}, 10);
-	}
-}, true);
-
+// if(import.meta.env.DEV) {
+  multSwiperImage();
+// }

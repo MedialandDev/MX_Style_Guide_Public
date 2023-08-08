@@ -1,4 +1,3 @@
-import { multSwiperImage } from "./common";
 // 複製按鈕
 const copyButtons = document.querySelectorAll('.copy-button');
 copyButtons.forEach(function(el) {
@@ -10,6 +9,7 @@ copyButtons.forEach(function(el) {
     tempInput.style.left = '-9999px';
     tempInput.value = link;
     document.body.appendChild(tempInput);
+
     tempInput.select();
     tempInput.setSelectionRange(0, link.length);
 
@@ -18,6 +18,3 @@ copyButtons.forEach(function(el) {
     alert(`你已經複製 ${link}`);
   });
 });
-// if(import.meta.env.DEV) {
-  multSwiperImage();
-// }

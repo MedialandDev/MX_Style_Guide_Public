@@ -1,5 +1,5 @@
 mixin articleCard(item)
-  a(href="article-content.html" class="grid group border-t border-solid border-[#E0E5F1]")
+  a(href="article-content.html" class="list-card grid group border-t border-solid border-[#E0E5F1]" data-value=item.dataValue)
     div(class="pt-24px pb-20px")
       div(class="flex-center justify-between gap-16px")
         div(class="text-[13px] leading-150 text-gray3")=item.time

@@ -1,11 +1,17 @@
 @font-face {
     font-family: "verdana";
-    src: url("/demo/2023_05_mx_demo/font/verdana.ttf");
+    // src: url("/demo/2023_05_mx_demo/font/verdana.ttf");
+    // src: local('verdana') url(../public/font/verdana.ttf) format('truetype');
 }
 html, body
   font-family 'verdana','Noto Sans TC', Verdana, Arial,'微軟正黑體修正', '微軟正黑體', 'Microsoft JhengHei', '儷黑 Pro', 'LiHei Pro', sans-serif
   // font-family 'Noto Sans TC','Tajawal', Verdana, Arial,'微軟正黑體修正', '微軟正黑體', 'Microsoft JhengHei', '儷黑 Pro', 'LiHei Pro', sans-serif
-
+body
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+footer 
+  margin-top: auto;
 // --- swiper輪播修改預設設定----
 .swiper
   .swiper-button-next,.swiper-button-prev
@@ -54,3 +60,8 @@ html, body
   overflow: hidden;
   transition: max-height 1s;
   max-height: 0;
+
+.iframe-youtube.is-active
+  + .yt-cover
+      opacity 0
+      transition opacity 0.5s ease

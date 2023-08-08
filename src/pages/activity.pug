@@ -5,16 +5,20 @@ include ../data/fakeData.pug
 
 
 div(class="container pb-80px mt-64px")
-  img(class="bg-bubble hidden md:block" src="img/bg-pink-pc.png", alt="" )
-  img(class="bg-bubble md:hidden" src="img/bg-pink-mob.png", alt="")
+  img(class="bg-bubble hidden md:block" src="assets/img/bg-pink-pc.png", alt="" )
+  img(class="bg-bubble md:hidden" src="assets/img/bg-pink-mob.png", alt="")
   section(class="py-48px")
     h2(class="h1 text-s4") 活動訊息
   section
     div(class="grid gap-32px md:gap-48px")
       - for(i=0; i < activityList.length ; i++)
+        // 一個 卡片 start
         +activityCard(activityList[i])
+        // 一個 卡片 end
+      //0802當沒有資料時。請將此移除 hidden class START
+      p.hidden.body 目前無資料
+      //0802當沒有資料時。請將此移除 hidden class END
   div(class="mt-48px")
     +pageSelector()
-
 
 include ../components/footer.pug

@@ -1,16 +1,18 @@
 mixin pageNavigation(item)
   div(class="pt-48px")
     div(class="border-t border-solid border-[#E0E5F1] flex gap-20px py-20px items-center justify-between flex-row flex-wrap md:flex-nowrap")
+      // 如要隱藏，請在a標籤class加上 invisible
       a(href=item.prevLink class="order-2 md:order-none basis-5/12 md:pl-[35px] flex flex-col relative group")
         div(class="flex pb-10px gap-4px")
           div(class="md:absolute left-0 top-5")
-            img(src="img/arrow-p-icon-2.svg", alt="", srcset="", class="group-hover:animate-trans-left")
+            img(src="assets/img/arrow-p-icon-2.svg", alt="", srcset="", class="group-hover:animate-trans-left")
           p(class="button-text text-s3 text-left") 上一則
         p(class="text-[13px] leading-150 tracking-[.03em] text-[#4F5976]")=item.prevTitle
       a(href="#" class="buton-text text-base font-bold text-s3 leading-150 text-center basis-full md:basis-1/5 hover:text-opacity-50") 回列表頁
+      // 如要隱藏，請在a標籤class加上 invisible
       a(href=item.nextLink class="flex flex-col relative group items-end order-3 md:order-none basis-5/12 md:pr-[35px]")
         div(class="flex pb-10px gap-4px")
           p(class="button-text text-s3") 下一則
           div(class="rotate-180 md:absolute right-0 top-5")
-            img(src="img/arrow-p-icon-2.svg", alt="", srcset="", class="group-hover:animate-trans-left")
+            img(src="assets/img/arrow-p-icon-2.svg", alt="", srcset="", class="group-hover:animate-trans-left")
         p(class="text-[13px] leading-150 tracking-[.03em] text-[#4F5976] text-right")=item.nextTitle

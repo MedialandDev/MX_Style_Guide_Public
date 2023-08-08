@@ -4,46 +4,30 @@ include ../components/pageSelector.pug
 include ../data/fakeData.pug
 
 div(class="container pb-80px mt-64px")
-  img(class="bg-bubble hidden md:block" src="img/bg-orange-pc.png", alt="" )
-  img(class="bg-bubble md:hidden" src="img/bg-orange-mob.png", alt="")
+  img(class="bg-bubble hidden md:block" src="assets/img/bg-orange-pc.png", alt="" )
+  img(class="bg-bubble md:hidden" src="assets/img/bg-orange-mob.png", alt="")
   section(class="py-48px")
     h1(class="h1 text-s4") 文章單元
   section
     div(class="mb-48px mt-16px flex gap-8px flex-wrap")
         // --- Tab 灰色版本 ---
-        div(data-value="all" class="tab tab-button gray1") 全部消息
-        div(data-value="discount" class="tab tab-button gray1") 優惠訊息
-        // Note 選取狀態是加 is-active
-        div(data-value="member" class="tab tab-button is-active gray1") 會員限定selected
-        div(data-value="brand" class="tab tab-button gray1") 品牌新知
-        div(data-value="post" class="tab tab-button gray1") 企業公告
+        //0804 加上data-catalog 的值並移除第一個is-active
+        div(data-value="all" data-catalog=0 class="tab tab-button gray1") 全部文章
+        div(data-value="case" data-catalog=8 class="tab tab-button gray1") 精選案例
+        div(data-value="platform" data-catalog=9 class="tab tab-button gray1") 平台建置
+        div(data-value="creativity" data-catalog=10 class="tab tab-button gray1") 傳播創意
+        div(data-value="award" data-catalog=12 class="tab tab-button gray1") 得獎花絮
     section
       div(class="grid justify-between md:grid-cols-3-card gap-32px md:gap-[30px] xl:gap-x-[unset] gap-y-48px")
         - for(i=0; i < articleList.length ; i++)
+          // 一個 卡片 start
           +articleCard(articleList[i])
+          // 一個 卡片 end
+        //0802當沒有資料時。請將此移除 hidden START
+        p.hidden.body 目前無資料
+        //0802當沒有資料時。請將此移除 hidden END
     div(class="mt-48px")
         +pageSelector()
 
 include ../components/footer.pug
-// tab切換js 
-script.
-  const tabList = document.querySelectorAll('.tab');
-  tabList.forEach((item) => {
-    item.addEventListener('click', (e) => {
-      document.querySelectorAll('.tab').forEach((el) => {
-      el.classList.remove('is-active');
-      });  
-    item.classList.add('is-active');
-    const currentValue = e.target.dataset.value;
-    if(currentValue === 'all') {
-      document.querySelectorAll('.list-card').forEach((el) => {
-        el.classList.remove('hidden');
-      });
-      return
-    }
-    document.querySelectorAll('.list-card').forEach((el) => {
-      console.log('test', el.dataset.value)
-      el.classList.toggle('hidden', el.dataset.value !== currentValue)
-    });
-  });
-  });
+// 0804 這邊js 移到該頁js 

@@ -1,15 +1,20 @@
 mixin activityCard(item)
-    a(href="activity-content.html" class="flex-center flex-col md:flex-row md:gap-32px group trans-effect")
+    //0804 flex-center移除改成 flex md:items-center
+    a(href="activity-content.html" class="flex md:items-center flex-col md:flex-row md:gap-32px group trans-effect")
       if item.status === 1
         div(class="relative md:shrink-0 overflow-hidden after:content-['進行中'] after:bg-s2 status-style")
-          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:max-w-[380px] md:h-[214px] w-full")
+          //0807 請將 md:max-w-[380px] 改成 md:min-w-[380px]，並新增 object-contain,bg-[#e2e2e2]
+          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:min-w-[380px] md:h-[214px] w-full object-contain bg-[#e2e2e2]")
       else if item.status === 2
         div(class="relative md:shrink-0 overflow-hidden after:content-['已結束'] after:bg-gray3 status-style")
-          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:max-w-[380px] md:h-[214px] w-full") 
+          //0807 請將 md:max-w-[380px] 改成 md:min-w-[380px]，並新增 object-contain,bg-[#e2e2e2]
+          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:min-w-[380px] md:h-[214px] w-full object-contain bg-[#e2e2e2]") 
       else
         div(class="relative md:shrink-0 overflow-hidden after:content-['即將舉行'] after:bg-s3 status-style")
-          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:max-w-[380px] md:h-[214px] w-full") 
-      div(class="py-20px border-b border-solid flex flex-col md:h-full border-[#E0E5F1]")
+          //0807 請將 md:max-w-[380px] 改成 md:min-w-[380px]，並新增 object-contain,bg-[#e2e2e2]
+          img(src="https://fakeimg.pl/800x450/?text=16:9", alt="", width="380", height="214", class="group-hover:scale-110 trans-effect md:min-w-[380px] md:h-[214px] w-full object-contain bg-[#e2e2e2]") 
+      //0802 此div 加一個class flex-auto    
+      div(class="py-20px border-b border-solid flex flex-col md:h-full border-[#E0E5F1] flex-auto")
         div(class="inline text-xl leading-150 text-s2")=item.startTime
           span(class="text-xl leading-150 text-s2 px-[10px]") ~
           |!{item.endTime}

@@ -3,27 +3,34 @@ include ../components/pageNavigation.pug
 include ../data/fakeData.pug
 
 div(class="container pb-80px mt-64px")
-  img(class="bg-bubble hidden md:block" src="img/bg-pink-pc.png", alt="" )
-  img(class="bg-bubble md:hidden" src="img/bg-pink-mob.png", alt="")
+  img(class="bg-bubble hidden md:block" src="assets/img/bg-pink-pc.png", alt="" )
+  img(class="bg-bubble md:hidden" src="assets/img/bg-pink-mob.png", alt="")
   section 
     p(class="flex-center text-xs text-gray3 pt-8px") HOME
       span(class="h-px bg-s2 w-2.5 block mx-[7px]")
       | 活動訊息
     h1(class="h1 py-48px") 米蘭傳播集團參加政治大學校園就業博覽會
-    div(class="flex justify-between pb-20px")
-      div(class="inline text-xl leading-150 text-s2") 2022.07.01
-        span(class="text-xl leading-150 text-s2 px-[10px] hidden md:inline") ~
-        br(class="block md:hidden")
-        |2022.09.28
-      div(class="flex") 
+    div(class="flex justify-between pb-20px flex-col md:flex-row gap-32px")
+      div 
+        div
+          p(class="inline text-base leading-150 text-gray2 mr-8px") 活動時間
+          p(class="mt-8px md:mt-0 md:inline text-base leading-150 text-s2") 2022.07.01
+            span(class="text-base leading-150 text-s2 px-[10px] md:inline") ~
+            //- br(class="block md:hidden")
+            |2022.09.28
+        div(class="mt-16px md:mt-8px")
+          p(class="inline-block text-base leading-150 text-gray2 mr-8px") 主辦單位
+          p(class="mt-8px md:mt-0 md:inline text-base leading-150 text-s2") 國立政治大學學生會
+      // 0802 請加此加上 self-end
+      div(class="flex self-end") 
         a(href="#")
-          img(src="img/line-g-icon.svg" , alt="", class="share-button", width=40) 
+          img(src="assets/img/line-g-icon.svg" , alt="", class="share-button", width=40) 
         a(href="#")
-          img(src="img/facebook-g-icon.svg" , alt="", class="share-button", width=40) 
-        a(href="#")
-          img(src="img/link-g-icon.svg" , alt="", class="share-button", width=40) 
-        a(href="#")
-          img(src="img/print-g-icon.svg" , alt="", class="share-button", width=40)
+          img(src="assets/img/facebook-g-icon.svg" , alt="", class="share-button", width=40) 
+        //複製按鈕- data-link 要加上連結網址 ，且在 class 加上 copy-button  
+        a(class="copy-button" data-link="https://google.com" href="#")
+          img(src="assets/img/link-g-icon.svg" , alt="", class="share-button", width=40) 
+        
     div(class="w-full h-0.5 linear-grad-2")
   section(class="pt-48px")
     div(class="gap-10px md:gap-[15px] flex md:items-center pb-20px")
@@ -34,14 +41,22 @@ div(class="container pb-80px mt-64px")
     br
     br
     p(class="body text-gray2 mb-48px") 我們將本次活動傳遞米蘭傳播集團的創立背景和價值觀，讓同學們更了解我們的使命和核心服務。並提供詳細的招募訊息，包括實習機會和全職職位。
+    p(class="body text-gray2 mb-48px") 活動期間更透過實務分享的案例講座，讓同學們深入了解數位行銷和傳播領域的最新趨勢和洞察力，對產業發展及職涯規劃有更深入的了解。
+    p(class="body text-gray2 mb-48px") 我們期待與政治大學的學生進行面對面的交流互動，聆聽你的想法和疑問，並與你分享我們的專業知識和經驗。我們校園就業博覽會見囉！
+    p(class="body text-gray2 mb-48px") 活動日期：3月21日至3月31日
+                                        br
+                                        |活動地點：政治大學校園
+    p(class="body text-gray2 mb-48px") 感謝您對米蘭傳播集團的關注，我們期待在校園就業博覽會上與您見面！
+
     a(href="#" class="link-text mx-auto mb-48px") 文字連結文字連結文字連結文字連結
       <svg width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M2 11.0001L18.1563 11.0001M18.1563 11.0001L13.9137 6.75742M18.1563 11.0001L13.9137 15.2427" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
-    // 單圖
+    // 單圖 
+    //0802在 img 上加上class w-full
     //-Note 照片為假圖
     figure(class="mb-48px") 
-      img(src="https://fakeimg.pl/1300x732/?text=16:9", alt="", srcset="")
+      img(src="https://fakeimg.pl/1300x732/?text=16:9", alt="", class="w-full")
       figcaption(class="body text-gray2 text-center py-8px md:py-16px") 圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片描述圖片
     //- 切換頁面
     +pageNavigation(pageNavigationList[0])

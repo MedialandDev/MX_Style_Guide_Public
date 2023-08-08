@@ -1,5 +1,6 @@
 mixin pageSelector()
   div(class="flex-center justify-center gap-48px overflow-hidden")
+    //Note 如果頁數只有1 下方這兩個按鈕麻煩加上 is-disable  
     div(class="flex gap-10px")
       div(class="page-first page-arrow text-gray3 border-gray3 hover:bg-gray3")
         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,12 +12,17 @@ mixin pageSelector()
           <path d="M10.125 12.25L4.875 7L10.125 1.75" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
     //-選擇器頁面數字
-    div(class="flex gap-10px justify-center")
-      div(class="page-number lg:flex is-active" data-value="1") 1
-      div(class="page-number hidden lg:flex" data-value="2") 2
-      div(class="page-number hidden lg:flex" data-value="3") 3
-      div(class="page-number hidden lg:flex" data-value="4") 4
-      div(class="page-number hidden lg:flex" data-value="5") 5
+    //Note 當手機版的時候只有active的按鈕會顯示 其他隱藏
+    //0802 此行is-active移除 並加上hidden
+    div(class="flex gap-10px justify-center page-content")
+      div(class="page-number hidden" data-value="1") 1
+      div(class="page-number hidden" data-value="2") 2
+      div(class="page-number hidden" data-value="3") 3
+      div(class="page-number hidden" data-value="4") 4
+      div(class="page-number hidden" data-value="5") 5
+      div(class="page-number hidden" data-value="6") 6
+      div(class="page-number hidden" data-value="7") 7
+    //Note 如果頁數只有1 下方這兩個按鈕麻煩加上 is-disable  
     div(class="flex gap-10px")
       div(class="page-next page-arrow rotate-180 text-gray3 border-gray3 hover:bg-gray3")
         <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
