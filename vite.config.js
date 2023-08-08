@@ -13,7 +13,7 @@ const pageList = [
   { path: 'news', title: '最新消息', pug: 'news', script: 'news' },
   { path: 'news-content', title: '最新消息/內容頁', pug: 'news-content', script: 'news-content' },
   { path: 'activity', title: '活動訊息', pug: 'activity', script: 'activity' },
-  { path: 'activity-content', title: '活動訊息/內容頁', pug: 'activity-content', script: '' },
+  { path: 'activity-content', title: '活動訊息/內容頁', pug: 'activity-content', script: 'activity-content' },
   { path: 'article', title: '文章單元', pug: 'article', script: 'article' },
   { path: 'article-content', title: '文章單元/內容頁', pug: 'article-content', script: 'article-content' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
