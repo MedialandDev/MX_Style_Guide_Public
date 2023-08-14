@@ -88,7 +88,7 @@ export function bannerSwiper() {
 };
 
 //分頁選擇器 - 公用
-export function pageSelector(){
+export function pageSelector(showPageView = 5){
   const pagingFirst = document.querySelector('.page-first') || [];
   const pagingPrev = document.querySelector('.page-prev') || [];
   const pagingNext = document.querySelector('.page-next') || [];
@@ -109,36 +109,39 @@ export function pageSelector(){
       pagingNext.classList.toggle('is-disable', dataset.value === totalPage.toString());
       pagingLast.classList.toggle('is-disable', dataset.value === totalPage.toString());
     };
-    //選擇器顯示狀態 > 5時 START
-    if(totalPage > 5) {
-      // 首數 1 4
-      if(currentPage <= 2 ) {
-        for(let i = 0; i < 5; i++) {
-          pageNumberList[i].classList.toggle('lg:flex');
-        };
-        return
-      };
-      //尾數 4 1
-      if(currentPage >= totalPage -1) {
-        for(let i = totalPage ; i > totalPage - 5 ; i--) {
-          pageNumberList[i - 1].classList.add('lg:flex');
-        }
-        return
-      };
-      //中間數 2 2
-      for(let i = currentPage - 2 ; i < currentPage + 3; i++) {
+    //選擇器顯示狀態 (預設 > 5) START
+    function showPage(firstVal, lastVal) {
+      for(let i = firstVal; i < lastVal; i++) {
         pageNumberList[i - 1].classList.toggle('lg:flex');
-      } 
+      };
+    }
+    //預設 n- showPageView = 5
+    if(totalPage > showPageView) {
+      const maxCount = showPageView / 2; 
+      // 狀態一 顯示最前面後 n 個
+      if(currentPage < maxCount) {
+        showPage(1, showPageView + 1);
+        return
+      }
+      // 狀態二 顯示最後面前 n 個
+      if(currentPage > totalPage - maxCount) {
+        showPage(totalPage - (showPageView - 1), totalPage + 1);
+        return
+      }
+      // 狀態三 顯示當前頁數前後各 n/2 個
+      showPage(currentPage - (Math.floor(maxCount)), currentPage + Math.ceil(maxCount))
       return
-    };
+    }
     pageNumberList.forEach(el =>{
       el.classList.add('lg:flex');
     });
-    //選擇器顯示狀態 > 5時 END
+    //選擇器顯示狀態 (預設 > 5) END
   };
 
   function updateLocation(currentPage) {
-    window.location.href = new URL(document.location).pathname + (new URL(document.location).searchParams.get('catalog') || 0 ? `?catalog=${new URL(document.location).searchParams.get('catalog')}&`: '?' ) + `page=${ currentPage }`;
+    const newUrl = new URL(document.location);
+    const catalogUrl = newUrl.searchParams.get('catalog') ? `&catalog=${newUrl.searchParams.get('catalog')}` : '';
+    window.location.href = newUrl.pathname + (`?page=${currentPage}${catalogUrl}`);
   };
   updateCurrentPage();
 
@@ -148,11 +151,11 @@ export function pageSelector(){
   };
   // 上一頁
   pagingPrev.onclick = () => {
-    updateLocation(Number(new URL(document.location).searchParams.get('page')) - 1);    
+    updateLocation(Number(new URL(document.location).searchParams.get('page') || 1) - 1);    
   };
   //下一頁
   pagingNext.onclick = () => {
-    updateLocation(Number(new URL(document.location).searchParams.get('page'))+ 1);    
+    updateLocation(Number(new URL(document.location).searchParams.get('page') || 1) + 1);    
   };
   //最後頁
   pagingLast.onclick = () => {
