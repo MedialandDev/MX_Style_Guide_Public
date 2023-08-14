@@ -54,7 +54,8 @@ function mouseFuc(value) {
       }, 10);
     }
   }, true);
-}
+};
+
 //Swiper 共用輪播 多圖
 export function multSwiperImage() {
   const swiperImages = new Swiper('.swiper-images', {
@@ -75,7 +76,7 @@ export function multSwiperImage() {
     },
   });
   mouseFuc('.swiper-images');
-}
+};
 //Swiper 共用輪播 首頁banner
 export function bannerSwiper() {
   const swiperBanner = new Swiper('.swiper-banner', {
@@ -84,143 +85,130 @@ export function bannerSwiper() {
     ...slideSetting(),
   });
   mouseFuc('.swiper-banner');
-}
+};
 
-//分頁選擇器 & Tab - 公用
-export function pageSelector(isTab){
+//分頁選擇器 - 公用
+export function pageSelector(){
   const pagingFirst = document.querySelector('.page-first') || [];
   const pagingPrev = document.querySelector('.page-prev') || [];
   const pagingNext = document.querySelector('.page-next') || [];
   const pagingLast = document.querySelector('.page-last')|| [];
   const totalPage = document.querySelector('.page-content').childElementCount || [];
   const pageNumberList = document.querySelectorAll('.page-number') || [];
-  // 抓取當前頁碼 START
-  let currentCatalog = new URL(document.location).searchParams.get('catalog') || 0;
-  let currentPage = parseInt(new URL(document.location).searchParams.get('page')) || 1;
-  // 抓取當前頁碼 END
+
   function updateCurrentPage() {
-    pageNumberList.forEach((el,index) => {
-      if(totalPage > 0) {
+    const currentPage = parseInt(new URL(document.location).searchParams.get('page')) || 1;
+    if(totalPage > 0) {
+      pageNumberList.forEach((el,index) => {
         el.classList.toggle('is-active', currentPage === index + 1);
-      }
-    })
-    //檢查Arrow Button 狀態
-    const { dataset } = document.querySelector('.page-number.is-active') || [];
-    pagingFirst.classList.toggle('is-disable', dataset.value === '1')
-    pagingPrev.classList.toggle('is-disable', dataset.value === '1')
-    pagingNext.classList.toggle('is-disable', dataset.value === totalPage.toString())
-    pagingLast.classList.toggle('is-disable', dataset.value === totalPage.toString())
-  }
-  function updateLocation() {
-    let catalog = isTab ? `?catalog=${currentCatalog}&`: '?';
-    window.location.href = new URL(document.location).pathname + catalog + `page=${ currentPage }`;
-  }
+      });
+      //檢查Arrow Button 狀態
+      const { dataset } = document.querySelector('.page-number.is-active') || [];
+      pagingFirst.classList.toggle('is-disable', dataset.value === '1');
+      pagingPrev.classList.toggle('is-disable', dataset.value === '1');
+      pagingNext.classList.toggle('is-disable', dataset.value === totalPage.toString());
+      pagingLast.classList.toggle('is-disable', dataset.value === totalPage.toString());
+    };
+    //選擇器顯示狀態 > 5時 START
+    if(totalPage > 5) {
+      // 首數 1 4
+      if(currentPage <= 2 ) {
+        for(let i = 0; i < 5; i++) {
+          pageNumberList[i].classList.toggle('lg:flex');
+        };
+        return
+      };
+      //尾數 4 1
+      if(currentPage >= totalPage -1) {
+        for(let i = totalPage ; i > totalPage - 5 ; i--) {
+          pageNumberList[i - 1].classList.add('lg:flex');
+        }
+        return
+      };
+      //中間數 2 2
+      for(let i = currentPage - 2 ; i < currentPage + 3; i++) {
+        pageNumberList[i - 1].classList.toggle('lg:flex');
+      } 
+      return
+    };
+    pageNumberList.forEach(el =>{
+      el.classList.add('lg:flex');
+    });
+    //選擇器顯示狀態 > 5時 END
+  };
+
+  function updateLocation(currentPage) {
+    window.location.href = new URL(document.location).pathname + (new URL(document.location).searchParams.get('catalog') || 0 ? `?catalog=${new URL(document.location).searchParams.get('catalog')}&`: '?' ) + `page=${ currentPage }`;
+  };
   updateCurrentPage();
 
   // 第一頁
   pagingFirst.onclick = () => {
-    currentPage = 1;
-    updateLocation();
-  }
+    updateLocation(1);
+  };
   // 上一頁
   pagingPrev.onclick = () => {
-    if(currentPage > 1) {
-      currentPage--;
-      updateLocation();    
-    }
-  }
+    updateLocation(Number(new URL(document.location).searchParams.get('page')) - 1);    
+  };
   //下一頁
   pagingNext.onclick = () => {
-    if(currentPage < totalPage) {
-      currentPage++;
-      updateLocation();    
-    }
-  }
+    updateLocation(Number(new URL(document.location).searchParams.get('page'))+ 1);    
+  };
   //最後頁
   pagingLast.onclick = () => {
-    currentPage = totalPage;
-    updateLocation();  
-  }
+    updateLocation(totalPage);  
+  };
   // 數字按鈕設定click
   pageNumberList.forEach(el => {
     el.addEventListener('click', function() {
-      currentPage = Number(this.dataset.value);
-      updateLocation();
-    })
+      updateLocation(Number(this.dataset.value));
+    });
   });
-  //選擇器顯示狀態 > 5時 START
-  if(totalPage > 5) {
-    for(let i = 0 ; i < 5 ; i++) {
-      pageNumberList[i].classList.toggle('lg:flex', currentPage === 1)
-    };
-    //中間數
-    if(currentPage > 1 && currentPage !== totalPage) {
-      const nextCount =  totalPage - currentPage > 4 ? 4 : totalPage - currentPage;
-      const preCount = 4 - nextCount; 
-      for(let i = currentPage - preCount; i <= currentPage + nextCount ; i++){
-        pageNumberList[i - 1].classList.toggle('lg:flex')
-      } 
-    };
-    //尾數
-    if(currentPage === totalPage) {
-    for(let i = totalPage ; i > totalPage - 5 ; i--) {
-      pageNumberList[i - 1].classList.add('lg:flex')
-      }
-    };
-  }
-  else {
-    pageNumberList.forEach(el =>{
-      el.classList.add('lg:flex')
-    })
-  }
-  //選擇器顯示狀態 > 5時 END
+};
+export function tabChange() {
+  const currentCatalog = new URL(document.location).searchParams.get('catalog') || 0;
+  const tabList = document.querySelectorAll('.tab') || [];
   //TAB 切換js  START
-  if(isTab) {
-    const tabList = document.querySelectorAll('.tab') || [];
-    tabList.forEach((item) => {
-      item.addEventListener('click', (e) => {
-        document.querySelectorAll('.tab').forEach((el) => {
+  tabList.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      document.querySelectorAll('.tab').forEach((el) => { 
         el.classList.remove('is-active');
       });  
       const { value, catalog } = e.target.dataset;
+      window.location.href = `${new URL(document.location).pathname }?catalog=${catalog}`;
       if(value === 'all') {
         document.querySelectorAll('.list-card').forEach((el) => {
           el.classList.remove('hidden');
         });
-      }
-      window.location.href = `${new URL(document.location).pathname }?catalog=${catalog}`;
+        return
+      };
       document.querySelectorAll('.list-card').forEach((el) => {
-        el.classList.toggle('hidden', el.dataset.value !== value)
+        el.classList.toggle('hidden', el.dataset.value !== value);
       });
     });
-    });
-    tabList.forEach(item => {
-      item.classList.toggle('is-active', item.dataset.catalog === currentCatalog.toString());
-    })
-    //TAB 切換js END
-  }
-}
+  });
+  tabList.forEach(item => {
+    item.classList.toggle('is-active', item.dataset.catalog === currentCatalog.toString());
+  });
+  //TAB 切換js END
+};
 
 //複製按鈕 START
 export function copyFunction() {
   const copyButtonList = document.querySelectorAll('.copy-button');
   copyButtonList.forEach(el => {
     el.addEventListener('click', async function() {
-      let link = this.getAttribute('data-link');
-      // 輸入框
-      let tempInput = document.createElement('input');
-      tempInput.style.position = 'absolute';
-      tempInput.style.left = '-9999px';
+      const link = this.getAttribute('data-link');
+      const tempInput = document.createElement('input');
+      tempInput.style.visibility = 'hidden';
       tempInput.value = link;
       document.body.appendChild(tempInput);
-  
       tempInput.select();
-      tempInput.setSelectionRange(0, link.length);
       await navigator.clipboard.writeText(tempInput.value);
       document.body.removeChild(tempInput);
       alert(`你已經複製 ${link}`);
     });
   });
-}
+};
 //複製按鈕 END
 
