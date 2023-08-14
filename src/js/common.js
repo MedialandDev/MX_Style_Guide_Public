@@ -98,10 +98,11 @@ export function pageSelector(isTab){
   let currentCatalog = new URL(document.location).searchParams.get('catalog') || 0;
   let currentPage = parseInt(new URL(document.location).searchParams.get('page')) || 1;
   // 抓取當前頁碼 END
-  // update Page
   function updateCurrentPage() {
     pageNumberList.forEach((el,index) => {
-      el.classList.toggle('is-active', currentPage === index + 1)
+      if(totalPage > 0) {
+        el.classList.toggle('is-active', currentPage === index + 1);
+      }
     })
     //檢查Arrow Button 狀態
     const { dataset } = document.querySelector('.page-number.is-active') || [];
@@ -114,20 +115,17 @@ export function pageSelector(isTab){
     let catalog = isTab ? `?catalog=${currentCatalog}&`: '?';
     window.location.href = new URL(document.location).pathname + catalog + `page=${ currentPage }`;
   }
-  // 當只有 totalPage > 0 才觸發
-  if(totalPage <= 0) return;
   updateCurrentPage();
+
   // 第一頁
   pagingFirst.onclick = () => {
     currentPage = 1;
-    updateCurrentPage();
     updateLocation();
   }
   // 上一頁
   pagingPrev.onclick = () => {
     if(currentPage > 1) {
       currentPage--;
-      updateCurrentPage();
       updateLocation();    
     }
   }
@@ -135,24 +133,21 @@ export function pageSelector(isTab){
   pagingNext.onclick = () => {
     if(currentPage < totalPage) {
       currentPage++;
-      updateCurrentPage();
       updateLocation();    
     }
   }
   //最後頁
   pagingLast.onclick = () => {
     currentPage = totalPage;
-    updateCurrentPage();
     updateLocation();  
   }
   // 數字按鈕設定click
   pageNumberList.forEach(el => {
     el.addEventListener('click', function() {
       currentPage = Number(this.dataset.value);
-      updateCurrentPage();
       updateLocation();
     })
-  })
+  });
   //選擇器顯示狀態 > 5時 START
   if(totalPage > 5) {
     for(let i = 0 ; i < 5 ; i++) {
@@ -160,10 +155,8 @@ export function pageSelector(isTab){
     };
     //中間數
     if(currentPage > 1 && currentPage !== totalPage) {
-      let nextCount =  totalPage - currentPage;
-      nextCount = nextCount > 4 ? 4 : nextCount 
-      let preCount = 4 - nextCount; 
-      //當後面數字起碼有4個
+      const nextCount =  totalPage - currentPage > 4 ? 4 : totalPage - currentPage;
+      const preCount = 4 - nextCount; 
       for(let i = currentPage - preCount; i <= currentPage + nextCount ; i++){
         pageNumberList[i - 1].classList.toggle('lg:flex')
       } 
