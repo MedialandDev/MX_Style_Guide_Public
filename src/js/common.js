@@ -88,7 +88,7 @@ export function bannerSwiper() {
 };
 
 //分頁選擇器 - 公用
-export function pageSelector(showPageView = 5){
+export function pageSelector(PageNumberView = 5){
   const pagingFirst = document.querySelector('.page-first') || [];
   const pagingPrev = document.querySelector('.page-prev') || [];
   const pagingNext = document.querySelector('.page-next') || [];
@@ -111,25 +111,21 @@ export function pageSelector(showPageView = 5){
     };
     //選擇器顯示狀態 (預設 > 5) START
     function showPage(firstVal, lastVal) {
-      for(let i = firstVal; i < lastVal; i++) {
+      for(let i = firstVal; i <= lastVal; i++) {
         pageNumberList[i - 1].classList.toggle('lg:flex');
       };
     }
-    //預設 n- showPageView = 5
-    if(totalPage > showPageView) {
-      const maxCount = showPageView / 2; 
-      // 狀態一 顯示最前面後 n 個
-      if(currentPage < maxCount) {
-        showPage(1, showPageView + 1);
+    //預設 PageNumberView = 5
+    if(totalPage > PageNumberView) {
+      const PageNumberCount = Math.floor(PageNumberView / 2);   // 當 PageNumberView = 5,default = 2
+      const startPageNumber = currentPage <= PageNumberCount ? 1 : currentPage - PageNumberCount; // 當前頁面小於等於 PageNumberView 時為1 ,其餘為與 PageNumberCount的相差
+      // 狀態 - 顯示最後面前 n 個
+      if(currentPage > totalPage - PageNumberCount) {
+        showPage(totalPage - PageNumberView + 1, totalPage);
         return
       }
-      // 狀態二 顯示最後面前 n 個
-      if(currentPage > totalPage - maxCount) {
-        showPage(totalPage - (showPageView - 1), totalPage + 1);
-        return
-      }
-      // 狀態三 顯示當前頁數前後各 n/2 個
-      showPage(currentPage - (Math.floor(maxCount)), currentPage + Math.ceil(maxCount))
+      //狀態 - 其他狀態
+      showPage(startPageNumber, startPageNumber + PageNumberView - 1);
       return
     }
     pageNumberList.forEach(el =>{
