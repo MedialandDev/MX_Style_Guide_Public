@@ -1,2 +1,3 @@
-import { pageSelector } from "./common";
+import { pageSelector } from './common';
+
 pageSelector();

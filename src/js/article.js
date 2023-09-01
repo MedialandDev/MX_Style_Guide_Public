@@ -1,3 +1,4 @@
-import { pageSelector, tabChange } from "./common";
+import { pageSelector, tabChange } from './common';
+
 pageSelector();
 tabChange();

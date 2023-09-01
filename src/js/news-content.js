@@ -1,4 +1,4 @@
-import { copyFunction, multSwiperImage } from "./common";
+import { copyFunction, multSwiperImage } from './common';
 
 copyFunction();
 multSwiperImage();

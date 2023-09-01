@@ -1,2 +1,3 @@
-import { bannerSwiper } from "./common";
+import { bannerSwiper } from './common';
+
 bannerSwiper();
