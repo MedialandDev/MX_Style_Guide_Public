@@ -111,7 +111,7 @@ export function pageSelector(PageNumberView = 5) {
     }
     // 選擇器顯示狀態 (預設 > 5) START
     function showPage(firstVal, lastVal) {
-      for (let i = firstVal; i <= lastVal; i++) {
+      for (let i = firstVal; i <= lastVal; i += 1) {
         pageNumberList[i - 1].classList.toggle('lg:flex');
       }
     }

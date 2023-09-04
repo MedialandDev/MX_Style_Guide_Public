@@ -22,8 +22,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }], // 允許++,-- 寫法
-    'no-param-reassign': ['error', { props: false }], // 忽略函數參數的屬性賦值(common6),
+    'no-param-reassign': ['error', { props: true, ignorePropertyModificationsForRegex: ['^el', '^item'] }], // 忽略函數參數的屬性賦值 排除item,el,
     'max-len': ['error', { code: 140 }],
   },
 };
