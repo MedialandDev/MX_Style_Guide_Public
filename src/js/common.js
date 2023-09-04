@@ -161,6 +161,7 @@ export function pageSelector(PageNumberView = 5) {
   };
   // 數字按鈕設定click
   pageNumberList.forEach((el) => {
+    // eslint-disable-next-line func-names
     el.addEventListener('click', function () {
       updateLocation(Number(this.dataset.value));
     });
@@ -198,6 +199,7 @@ export function tabChange() {
 export function copyFunction() {
   const copyButtonList = document.querySelectorAll('.copy-button');
   copyButtonList.forEach((el) => {
+    // eslint-disable-next-line func-names
     el.addEventListener('click', async function () {
       const link = this.getAttribute('data-link');
       const tempInput = document.createElement('input');
@@ -207,6 +209,7 @@ export function copyFunction() {
       tempInput.select();
       await navigator.clipboard.writeText(tempInput.value);
       document.body.removeChild(tempInput);
+      // eslint-disable-next-line no-alert
       alert(`你已經複製 ${link}`);
     });
   });

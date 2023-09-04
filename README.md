@@ -31,6 +31,7 @@ path = 路徑, title = 頁面標題, pug = 頁面, script (非必要)
 
 ## only for 專案注意事項
 - 目前如果要用background-image，先不要用tailwind
-
+- compontent.css 是放組件的地方
+- tailwin.css 是引入，設置base的地方
 ## 待優化
 .env 環境設定
