@@ -57,10 +57,10 @@ document.addEventListener('DOMContentLoaded', () => {
       trigger: ele.dataset.trigger ? ele.dataset.trigger : ele,
       // markers: true,
       once: false, // 是否只執行一次
-      onEnter: fadeFrom(ele),
-      // onEnterBack: fadeFrom(ele, -1),
-      // onLeave: fadeHide(ele),
-      // onLeaveBack: fadeHide(ele),
+      onEnter: function () { fadeFrom(ele) },
+      // onEnterBack: function () { fadeFrom(ele, -1) },
+      // onLeave: function () { fadeHide(ele) },
+      // onLeaveBack: function () { fadeHide(ele) },
       start: ele.dataset.trigger && '80% bottom',
       end: ele.dataset.trigger && 'top center',
     });
