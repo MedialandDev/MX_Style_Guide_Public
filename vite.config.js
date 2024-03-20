@@ -17,6 +17,7 @@ const pageList = [
   { path: 'article', title: '文章單元', pug: 'article', script: 'article' },
   { path: 'article-content', title: '文章單元/內容頁', pug: 'article-content', script: 'article-content' },
   { path: 'vue', title: 'vue', pug: 'vue', script: 'vue' },
+  { path: 'animate-component', title: 'animate-component', pug: 'animate-component', script: 'animate-component' },
 ]
 
 const pages = {};

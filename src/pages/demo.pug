@@ -10,11 +10,12 @@ section.container(class="mt-80px")
     a(href="activity-content.html" class="text-gray1") 活動訊息內頁 >>
     a(href="article.html" class="text-gray1") 文章單元 >>
     a(href="article-content.html" class="text-gray1") 文章單元內頁 >>
+    a(href="animate-component.html" class="text-gray1") 動態元件 >>
   h1(class="h1") 文字
   div(class="flex-center gap-5 flex-wrap py-24px")
-    h1(class="h1") h1 
-    h2(class="h2") h2 
-    h3(class="h3") h3 
+    h1(class="h1") h1
+    h2(class="h2") h2
+    h3(class="h3") h3
     p(class="body") body
     p(class="button-text") button-text
   div(class="grid grid-cols-2")
@@ -33,7 +34,7 @@ section.container(class="mt-80px")
         p(class="text-gray2") #585A5C - gray2
         p(class="text-gray3") #9FA0A0 - gray3
         p(class="text-w1") #FFFEFD - w1
-  h1(class="h1") FONT 
+  h1(class="h1") FONT
   p 思源黑體/tw Tajawal/en
   h1(class="h1 py-24px") 互動元件設定
     div(class="flex-center gap-5 py-24px flex-wrap")
@@ -46,7 +47,7 @@ section.container(class="mt-80px")
       a(class="tab-button") 分類篩選
     div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 按鈕+icon
-      
+
       //- ### icon按鈕 button-primary ###
       //Note group 用於當你btn hover時，子層也有做變換效果/
       div(class="button-primary group")
@@ -90,15 +91,13 @@ section.container(class="mt-80px")
       h2(class="h2") 內容分享按鈕
       //- ### 分享按鈕 share-button ###
       a(href="#")
-        img(src="assets/img/line-g-icon.svg" , alt="", srcset="", class="share-button") 
+        img(src="assets/img/line-g-icon.svg" , alt="", srcset="", class="share-button")
     div(class="flex-center gap-5 py-24px flex-wrap")
       h2(class="h2") 內容頁下方功能
       //  僅有文字沒有下底線.link-text.border-0
       //- ### 回列表頁 link-text.button-text.border-0 ###
       a(class="link-text button-text border-0") 回列表頁
-    div(class="flex-center gap-5 py-24px flex-wrap")
-      h2(class="h2") 額外按鈕Test
-      a(class=" button-text button-primary button-slide button-slide-down shadow-s3 hover:shadow-s3 hover:text-w1")  slide Down
+
 
 
 
@@ -107,5 +106,4 @@ include ../components/footer.pug
 
 
 
-    
-  
+
